@@ -1,0 +1,22 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-top: 1px solid black;
+}
