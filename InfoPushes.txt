@@ -4,4 +4,4 @@ Ik plaats hier de tailwind files in samen met de normale html/css.
 De folders css/assets en de file index.html horen bij normale css.
 Al de rest (src, public, ...) horen bij tailwind. 
 
-Dit gaat een tijdelijke ongemakkelijkheid zijn, na een definitieve beslissing zal dit schoongemaakt worden. Mijn excuses.  
+Dit gaat tijdelijk ongemakkelijk zijn, na een definitieve beslissing zal dit schoongemaakt worden. Mijn excuses.  
