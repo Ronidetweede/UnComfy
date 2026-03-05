@@ -1,0 +1,59 @@
+/* Variabelen */
+
+:root {
+    /* Signature green */
+    --backgroundcolor: #99DDA2;
+    --backgroundcolor-dark: #507855;
+
+    /* Fonts */
+    --font-signature: "Averia Serif Libre", serif;
+    --font-body: "Inter", sans-serif;
+
+    --text-black: #000000;
+    --text-white: #ffffff;
+    --text-muted: #828282;
+
+    /* Mobile */
+    --fs-body-mobile: 14px;  /* 14–18px */
+    --fs-heading-mobile: 24px; /* 24–32px */
+    --fs-big-title-mobile: 64px;
+
+    /* Desktop */
+    --fs-body-desktop: 14px; /* 14–16px */
+    --fs-heading-desktop: 32px; /* 32–48px */
+    
+    /* Border */
+    --border-color-input: #ccc;
+    --border-radius: 7px;
+
+    /* Button */
+    --button-color-grey: #EEEEEE;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    font-size: var(--fs-body-mobile);
+    color: var(--text-black);
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+}
+
+header,
+footer {
+  flex-grow: 0;
+}
+main {
+  flex-grow: 1;
+}
+
+header,
+main,
+footer {
+  /* Flexbox */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
