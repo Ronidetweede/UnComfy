@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="nl-BE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Un(comfy) - Login</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>un<br>(comfy)</h1>
+      </div>
+    </header>
+    <main>
+      <section>
+        <h2>Create an account</h2>
+        <p>Enter your email to sign up for this app</p>
+      </section>
+
+      <form>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email@domain.com"
+          required
+          class="input-field"
+        />
+        <button type="submit" class="continue-button">Continue</button>
+      </form>
+
+      <p>or</p>
+
+      <section class="social-login">
+        <div class="social-login-button">
+          <img src="./assets/icons/icon-google.png" alt="google-icon" />
+          <p>Continue with Google</p>
+        </div>
+        <div class="social-login-button">
+          <img src="./assets/icons/icon-apple.png" alt="apple-icon" />
+          <p>Continue with Apple</p>
+        </div>
+      </section>
+
+      <section class="terms">
+        <p>
+          By clicking continue, you agree to our
+          <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> 
+          <!-- Linken naar bestaande pagina's -->
+        </p>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
