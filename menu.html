@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="./css/reset.css" />
     <link rel="stylesheet" href="./css/general.css" />
-    <link rel="stylesheet" href="./css/login.css" />
+    <link rel="stylesheet" href="./css/menu.css" />
   </head>
   <body>
     <header>
@@ -22,32 +22,42 @@
     </header>
     <main>
       <section class="todays-challenge">
-        <h2>Todays challenge ></h2>
+        <h2>Todays challenge</h2>
         <div>
           <p>Go out for dinner solo</p>
         </div>
       </section>
-      <section class="weekly-streak">
-        <h2>Weekly streak</h2>
-        <p>0 out of 7 days completed</p>
-        <!-- Maak dynamisch met Javascript-->
-        <ul>
-          <li>M</li>
-          <li>D</li>
-          <li>W</li>
-          <li>D</li>
-          <li>V</li>
-          <li>Z</li>
-          <li>Z</li>
-        </ul>
-        <div>
-          <p>Complete week for bonus</p>
-          <p>+100 CP</p>
+
+      <section class="streak-container">
+        <div class="streak-header">
+          <div>
+            <h2>Weekly Streak</h2>
+            <p>5 out of 7 days completed</p>
+          </div>
+
+          <div class="streak-icon"><img src="./assets/icons/streak-icon.png" alt="streak-icon"></div>
+        </div>
+
+        <div class="days">
+          <div class="day completed">M</div>
+          <div class="day completed">T</div>
+          <div class="day completed">W</div>
+          <div class="day completed">T</div>
+          <div class="day completed">F</div>
+          <div class="day active">S</div>
+          <div class="day disabled">S</div>
+        </div>
+
+        <div class="bonus">
+          <span>Complete week for bonus</span>
+          <span>+100 CP</span>
         </div>
       </section>
       <section class="leaderbord"></section>
       <section class="explore-challenges"></section>
     </main>
-    <footer></footer>
+    <footer>
+      
+    </footer>
   </body>
 </html>
