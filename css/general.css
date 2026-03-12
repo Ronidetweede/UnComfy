@@ -2,8 +2,21 @@
 
 :root {
     /* Signature green */
-    --backgroundcolor: #99DDA2;
-    --backgroundcolor-dark: #507855;
+    --backgroundcolor-green: #99dda2;
+    --backgroundcolor-header-green: #7eb785;
+    --backgroundcolor-dark-green: #507855;
+
+    /* Blue Theme */
+    --backgroundcolor-blue: #99C7DD;
+    --backgroundcolor-dark-blue: #185975;
+
+    /* Pink Theme */
+    --backgroundcolor-pink: #DD99C2;
+    --backgroundcolor-dark-pink: #8b4a6c;
+
+    /* Yellow Theme */
+    --backgroundcolor-yellow: #F1E08B;
+    --backgroundcolor-dark-yellow: #c5ab13;
 
     /* Fonts */
     --font-signature: "Averia Serif Libre", serif;
@@ -56,4 +69,14 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+footer > .menu-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
