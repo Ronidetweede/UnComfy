@@ -10,7 +10,7 @@ let returnButton = document.querySelector(".return-button");
 
 let titleTutorial = document.querySelector(".title-tutorial");
 let textTutorial = document.querySelector(".text-tutorial");
-
+let imageTutorial = document.querySelector(".img-tutorial");
 let counter = 0;
 
 balls[counter].classList.add("active");
@@ -29,6 +29,8 @@ let continueButton = document.querySelector(".continue-button")
         counter++;
         balls[counter].classList.add("active");
         balls[counter - 1].classList.remove("active");
+        
+        imageTutorial.src = `./assets/tutorial/Part${counter + 1}.png`
         titleTutorial.textContent = titles[counter];
         textTutorial.textContent = text[counter];
         

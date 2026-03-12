@@ -5,7 +5,7 @@ header{
 
     padding: 10px 0px 10px 10px;
 
-    /*Grid*/
+    /* Grid */
     display: grid;
     grid-template-columns: 10% auto;
     grid-row: auto auto;
@@ -31,12 +31,10 @@ header > p{
     grid-column: 2;
     grid-row: 2;
 }
-
 body{
-    gap: 50px; /* Vragen of dit inorde is */
+    gap: 50px;
 }
-
-main{
+main {
     gap: 20px; 
 }
 
@@ -63,12 +61,12 @@ main > h2{
 
 .upload-zone{
     display: flex;
-    width: 100vw;
+    width: 300px;
     
     /* Flex-box */
 
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .selfie{
