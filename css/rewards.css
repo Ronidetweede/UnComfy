@@ -1,0 +1,80 @@
+.green-box {
+    background-color: var(--backgroundcolor-green);
+    width: 100%;
+    height: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green-box h2 {
+    font-weight: 500;
+}
+
+.green-box span {
+    position: absolute;
+    font-size: 13px;
+    right: 8px;
+    color: var(--text-white);
+}
+
+.table-headers {
+    width: 93%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    font-size: 11px;
+}
+
+.rewards-list {
+    width: 93%;
+    margin: 15px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.reward {
+    display: grid;
+    grid-template-columns: 65px 1fr 58px;
+    gap: 17px;
+    border-bottom: 0.2px solid var(--backgroundcolor-green);
+    align-items: center;
+}
+
+.brand-image img {
+    width: 70px;
+    border-radius: 8px;
+}
+
+.description .label {
+    font-size: 11px;
+    color: gray;
+}
+
+.description .brand {
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+
+.description .offer {
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+
+.description .claim {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.points {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.points img {
+    width: 7px;
+}
