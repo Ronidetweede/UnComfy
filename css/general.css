@@ -72,11 +72,53 @@ footer {
 }
 
 footer > .menu-icons {
+
+  width: 100vmin;
+
+  
+  /* Flex-Box */
   display: flex;
+  gap: 35px;
   justify-content: center;
-  align-items: center;
+  align-content: center;
   background-color: white;
   position: fixed;
-  bottom: 0;
-  width: 100%;
+  bottom: 0;  
+}
+
+footer > .menu-icons > a{
+  padding: 6px 13px 4px 13px;
+}
+
+
+footer > .menu-icons > a > p{
+  display: none;
+}
+
+/* Oppassen bij mergen, hier kunnen grote conflicten kopen (●'◡'●) */
+
+@media only screen and (min-width:1024px) {
+
+main{
+  padding-top: 20px;
+}
+
+footer > .menu-icons > a{
+  
+  display: flex;
+  align-items: center;
+
+}
+footer > .menu-icons > a > p{
+
+  display: block;
+  
+}
+
+header {
+  background-color: var(--backgroundcolor-green);
+  color: var(--text-white);
+}
+
+
 }

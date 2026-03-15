@@ -40,22 +40,26 @@ main {
 
 main > h2{
     align-self: start;
+    
+    
+    /* Dit moet aangepast worden */
     padding-left: 50px;
 }
 
 .challengeCard{
     width: 80%;
     height: 130px;
-    border: 1px solid black;
     border-radius: 24px;
     padding: 0px 10px 10px 20px;
     
     color: white;
-    background-color: black;
     /* Flex-box */
     display: flex;
     flex-direction: column;
     justify-content: end;
+
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent) ,url("/assets/ChallengeImages/Antwerpen.png");
+    
     
 }
 
@@ -69,23 +73,31 @@ main > h2{
     justify-content: space-between;
 }
 
-.selfie{
-    display: none;
-}
+.upload-zone > div > button{
+    gap: 10px ;
+    width: 130px;
+    height: 110px;
 
-.custom-selfie{
-    background-color: var(--button-color-grey);
-    border: 1px solid var(--border-color-input);
+    background-color: #F9FAFB;
+    border: 1px solid #D1D5DC;
 
-    padding: 40px;
     border-radius: 16px;
-
 
     /* Flexbox */
     display: flex;
     flex-direction: column;
     
+    justify-content: center;
     align-items: center;
+}
+
+.selfie{
+    display: none;
+}
+
+.custom-selfie:first-child(){
+    border: 1px solid #46ECD5;
+
 }
 
 .custom-selfie.active{
@@ -115,6 +127,8 @@ main > h2{
     height: 60px;
     width: 80%;
     background-color: gray;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
+
 }
 
 .submit-challenge.active{
