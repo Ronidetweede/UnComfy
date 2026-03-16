@@ -1,18 +1,30 @@
+.image-Challenge{
+    
+
+    /* Gooi er een overlay bij Swa */
+    background-image: url("/assets/ChallengeImages/Antwerpen.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    /* Flex-Box */
+    display: flex;
+    height: 280px;
+    width: 100vmin;
+
+}
+
 header{
     height: 100px;
     border-bottom: 1px solid black;
 
     padding: 10px 0px 10px 10px;
 
-    /* Grid */
+    /*Grid*/
     display: grid;
     grid-template-columns: 10% auto;
-    grid-row: auto auto;
-    
+    grid-row: auto;
     align-content: center;
-
 }
-
 
 header > h3{
     font-size: var(--fs-heading-desktop);
@@ -25,121 +37,134 @@ header > h2{
     grid-column: 2;
     grid-row: 1;
 }
-header > p{
-    color: var(--text-muted);
-    grid-column: 2;
-    grid-row: 2;
-}
-main {
-    gap: 20px; 
-}
 
-main > h2{
-    align-self: start;
-    font-weight: bold;
+.image-Challenge{
 
-    /* Dit moet aangepast worden */
-    padding-left: 50px;
-}
-
-.challengeCard{
-    width: 80%;
-    height: 130px;
-    border-radius: 24px;
-    padding: 0px 10px 10px 20px;
+    padding-bottom: 20px;
     
-    color: white;
-    /* Flex-box */
+    /* Flex-Box */
+
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent) ,url("/assets/ChallengeImages/Antwerpen.png");
-    background-repeat: no-repeat;
-    background-size: cover;
+    justify-content: space-evenly;
+    align-items: end;
     
 }
 
-.upload-zone{
-    display: flex;
-    width: 300px;
-    
-    /* Flex-box */
+.image-Challenge > div{
+    width: 150px;
+    height: 60px;
+    padding-inline: 12px;
 
-    flex-direction: row;
-    justify-content:space-evenly;
-}
-
-
-.upload-zone > div > button{
-    gap: 10px ;
-    width: 130px;
-    height: 110px;
-
-    background-color: #F9FAFB;
-    border: 1px solid #D1D5DC;
-
+    background-color: white;
     border-radius: 16px;
 
-    /* Flexbox */
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 22% auto;
+    grid-template-rows: auto auto;
     
-    justify-content: center;
+    align-content: center;
     align-items: center;
 }
 
-.selfie{
-    display: none;
+.image-Challenge > div > img{
+    grid-column: 1;
+    grid-row: 1/3;
 }
 
-.custom-selfie:first-child(){
-    border: 1px solid #46ECD5;
-
-}
-
-.custom-selfie.active{
-    border: 2px solid var(--backgroundcolor);
-}
-
-.description{
-    width: 80%;
-    height: 200px;
-    border-radius: 16px;
+.image-Challenge > div > p{
+    font-size: 12px;
     color: var(--text-muted);
-    background-color: white;
-    border: 1px solid var(--border-color-input);
 }
 
-.description-input{
-    padding: 20px;
-    width: 100%; /* Limit the max input zodat de text naar beneden springt */
+.image-Challenge > div > h6{
+    font-weight: bold;
 }
 
-.submit-challenge{
-    font-size: 20px;
-    text-align: center;
-    border-radius: 16px;
+.info-Challenge{
+    
+    padding-left: 20px;
+    padding-right: 20px;
 
-    color: var(--text-white);
-    height: 60px;
-    width: 80%;
-    background-color: gray;
+    /* Flex-Box ----- - MOET HIER FLEX?? ZOU HET NI DOOR DE GENERAL AL INT MIDDEN MOETEN?  */
+    display: flex;
+    flex-direction: column;
+    
+    gap: 16px;
+}
+
+.expectation-Card{
+    width: 300px;
+
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
 
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
-.submit-challenge.active{
-    background-color: var(--backgroundcolor);
+.expectation-Card > ul{
+
+    list-style: disc;
+    padding-left: 20px;
+    
+    /* Flex-Box */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-@media only screen and (min-width:1024px) {
-    footer > .menu-icons > a:nth-child(1){
-        background-color: var(--backgroundcolor-green);
-    }
+.expectation-Card > ul > li::marker{
+    color: var(--backgroundcolor-green);
+}
 
-    header{
-        border-bottom: 0px;
-        height: 140px;
-    }
+.expectation-Card > h3{
+    font-weight: bold;
+
+    /* Flex-Box */
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.title-Challenge{
+    font-size: var(--fs-heading-mobile);
+    font-weight: bold;
+}
+
+.info-Challenge > h3{
+    font-weight: bold;
+}
+
+.info-Challenge > p {
+    color: var(--text-muted);
+}
+
+.completion-Card{
+    width: 300px;
+
+    background-color: var(--backgroundcolor-green);
+    color: white;
+    border-radius: 20px;
+    padding: 20px 20px 20px 20px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.completion-Card > h3{
+    
+    /* Flex-Box */
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.completion-Card > ul > li{
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }

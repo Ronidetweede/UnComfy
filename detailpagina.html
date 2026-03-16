@@ -16,45 +16,64 @@
     <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/detailpagina.css" />
         
-    <script type="module" src="./js/tutorial.js"></script>
   </head>
   <body>
-    <!-- Logo Hoort bij de "header" -->
-      <img src="./assets/Logo/Logo.png" class="logoDesktop">
+    <img src="./assets/Logo/Logo.png" class="logoDesktop">
     <header>
         <h3>«</h3>
-        <h2>
-            Stuur bewijs    
-        </h2>
-        <p>Laat ons je prestatie zien</p>
+        <h2>Uitdaging Details</h2>
     </header>
-
     <main>
-       <div class="challengeCard">
-        <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
-        <p class="location-name"><img src="/assets/icons/small-white-location.png" alt=""> Stadhuis Antwerpen</p>
-       </div>
+      <section class="image-Challenge">
+        <div class="location-challenge">
+            <img src="/assets/icons/green-location.png">
+            <p>Locatie</p>
+            <h6 class="location">Stadhuis</h6>
+        </div>
+        <div class="peopleChallenge">
+            <img src="/assets/icons/green-people.png">
+            <p>Joined</p>
+            <h6 class="people-joined">42 People</h6>
+        </div>
+      </section>
 
-       <h2>Upload Foto's</h2>
-       <section class="upload-zone">
-        <div class="takeimage">
-            <input type="file" class="selfie" name="selfie" accept="image/*" capture="enviroment"/>
-            <button type="button" class="custom-selfie"><img src="/assets/icons/green-camera.png" alt=""> <p>Neem Foto</p></button></div>
-      
-       <div class="upload-image">
-            <input type="file" class="selfie" name="selfie" accept="image/*" capture="enviroment"/>
-            <button type="button" class="custom-selfie"><img src="/assets/icons/upload.png" alt=""><p>Upload</p></button></div>
-       </section>
+    <h1 class="title-Challenge">Ga naar stadhuis en ontmoet 10 mensen</h1>
+      <div class="expectation-Card">
+        <h3><img src="/assets/icons/stars.png"> Wat je kan verwachten</h3>
+        <ul>
+            <li>Ewa</li>
+            <li>BO</li>
+            <li>Alles</li>
+            <li>Goed</li>
+        </ul>
+      </div>
 
-       <!--Voeg een extra submit button die onzichtbaar is waar je de input naar kunt sturen, je moet dit doen om te button te kunnen stylen voor de input-->
+      <div class="completion-Card">
+        <h3><img src="/assets/icons/white-award.png"> Wat je kan verwachten</h3>
+        <ul>
+            <li><img src="/assets/icons/checklist.png"> Ontmoet 10 mensen</li>
+            <li><img src="/assets/icons/checklist.png"> BO</li>
+            <li><img src="/assets/icons/checklist.png"> Alles</li>
+        </ul>
+      </div>
 
-       <h2>Descriptie</h2>
-       <div class="description">
-        
-       <input type="text" name="description" class="description-input" placeholder="Tell us about your experience...">
-       </div>
+      <section class="info-Challenge">
+        <h3>Over deze challenge</h3>
+        <p class="description-Challenge">LOREMLOREMLORE</p>
+      </section>
+     
+      <div class="expectation-Card">
+        <h3><img src="/assets/icons/stars.png">Tips voor succes</h3>
+        <ul>
+            <li>Ewa</li>
+            <li>BO</li>
+            <li>Alles</li>
+            <li>Goed</li>
+        </ul>
+      </div>
 
-       <button type="submit" class="submit-challenge">Verzenden & verdien 150 CP</button>
+    
+
     </main>
     <footer>
         <div class="menu-icons">

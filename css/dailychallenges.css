@@ -7,15 +7,10 @@ header{
     /*Grid*/
     display: grid;
     grid-template-columns: 10% auto;
-    grid-row: auto auto;
+    grid-row: auto;
     align-content: center;
 }
 
-main{
-    padding-top: 20px;
-    background-color: #E8F5EA;
-    gap: 20px;
-}
 
 header > h3{
     font-size: var(--fs-heading-desktop);
@@ -28,6 +23,13 @@ header > h2{
     grid-column: 2;
     grid-row: 1;
 }
+
+main{
+    padding-top: 20px;
+    background-color: #E8F5EA;
+    gap: 20px;
+}
+
 
 .search-Challenge{
     background-color: white;
