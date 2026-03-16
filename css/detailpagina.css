@@ -136,10 +136,10 @@ main > h2{
 @media only screen and (min-width:1024px) {
     footer > .menu-icons > a:nth-child(1){
         background-color: var(--backgroundcolor-green);
-        
     }
 
     header{
+        border-bottom: 0px;
         height: 140px;
     }
 }

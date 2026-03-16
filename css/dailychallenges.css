@@ -191,88 +191,27 @@ header > h2{
 
 
 
-.logoDesktop{
-    display: none;
-}
+
 
 @media only screen and (min-width:1024px) {
-    body{
-
-        /* Grid  Dit kan technisch gezien ook bij de general*/ 
-        display: grid;
-        grid-template-columns: 256px auto;
-        grid-template-rows: 140px auto;
-        gap: 0px;
-        
-    }
-
-    .logoDesktop{
-        display: block;
-        color: black;
-
-
-        grid-column: 1;
-        grid-row: 1;
-
-        justify-self: center;
-        align-self: center;
-    }
-
     header{
-        grid-column: 2/3;
-        grid-row: 1;
-        height: 140px;
         border-bottom: 0px;
+        height: 140px;
     }
-
     .info-available-challenges{
         display: flex;
         flex-direction: row;
         gap: 16px;
     }
-
-    footer{
-        grid-column: 1;
-        grid-row: 2/3;
-
-        border-radius: 0px 50px 0px 0px;
-        background-color: var();
-    }
-    header > h3{
-        display: none;
-    }
     header > h2{
         font-weight: bold;
         grid-column: 1/3;
-    }
-    footer > .menu-icons{
-        flex-direction: column;
-        position: relative;
-        align-items: center;
-        width: 100%;
-        
-    }
-
-    footer > .menu-icons > a{
-        width: 200px;
-        padding: 20px;
-        border-radius: 10px;
-
-        /* Flex-Box */
-        display: flex;
-        align-items: center;
-        gap: 16px;
     }
 
     footer > .menu-icons > a:nth-child(1){
         background-color: var(--backgroundcolor-green);
         
     }
-
-    .filter-Pills{
-        
-    }
-
     .dailyCards{
         /* Flex-Box */
         display: flex;
@@ -282,10 +221,4 @@ header > h2{
         justify-content: center;
     }
 
-    main{
-        grid-column: 2;
-        grid-row: 2;
-        gap: 12px;
-        background-color: #E8F5EA;
-    }
 }
