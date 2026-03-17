@@ -4,7 +4,9 @@ const timelineButton = document.getElementById("timeline-button");
 const galleryButton = document.getElementById("gallery-button");
 const achievements = document.getElementById("achievements");
 const timelineIcon = document.getElementById("timeline-icon");
-const galleryIcon = document.getElementById("gallery-icon")
+const galleryIcon = document.getElementById("gallery-icon");
+const menuButton = document.getElementById("menu-toggle");
+const menu = document.getElementById("menu");
 
 timelineButton.addEventListener("click", () => {
   achievements.classList.remove("gallery");
@@ -26,4 +28,14 @@ galleryButton.addEventListener("click", () => {
 
   galleryIcon.src = "assets/icons/icon-gallery.png";
   timelineIcon.src = "assets/icons/icon-timeline-gray.png";
+});
+
+menuButton.addEventListener("click", () => {
+  menu.classList.toggle("hidden");
+});
+
+document.addEventListener("click", (e) => {
+  if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+    menu.classList.add("hidden");
+  }
 });
