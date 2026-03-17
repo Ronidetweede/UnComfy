@@ -1,5 +1,4 @@
 header{
-    width: 100vw;
     height: 100px;
     border-bottom: 1px solid black;
 
@@ -31,31 +30,33 @@ header > p{
     grid-column: 2;
     grid-row: 2;
 }
-body{
-    gap: 50px;
-}
 main {
     gap: 20px; 
 }
 
 main > h2{
     align-self: start;
+    font-weight: bold;
+
+    /* Dit moet aangepast worden */
     padding-left: 50px;
 }
 
 .challengeCard{
     width: 80%;
     height: 130px;
-    border: 1px solid black;
     border-radius: 24px;
     padding: 0px 10px 10px 20px;
     
     color: white;
-    background-color: black;
     /* Flex-box */
     display: flex;
     flex-direction: column;
     justify-content: end;
+
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent) ,url("/assets/ChallengeImages/Antwerpen.png");
+    background-repeat: no-repeat;
+    background-size: cover;
     
 }
 
@@ -66,26 +67,35 @@ main > h2{
     /* Flex-box */
 
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:space-evenly;
+}
+
+
+.upload-zone > div > button{
+    gap: 10px ;
+    width: 130px;
+    height: 110px;
+
+    background-color: #F9FAFB;
+    border: 1px solid #D1D5DC;
+
+    border-radius: 16px;
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
 }
 
 .selfie{
     display: none;
 }
 
-.custom-selfie{
-    background-color: var(--button-color-grey);
-    border: 1px solid var(--border-color-input);
+.custom-selfie:first-child(){
+    border: 1px solid #46ECD5;
 
-    padding: 40px;
-    border-radius: 16px;
-
-
-    /* Flexbox */
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
 }
 
 .custom-selfie.active{
@@ -115,8 +125,21 @@ main > h2{
     height: 60px;
     width: 80%;
     background-color: gray;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
+
 }
 
 .submit-challenge.active{
     background-color: var(--backgroundcolor);
+}
+
+@media only screen and (min-width:1024px) {
+    footer > .menu-icons > a:nth-child(1){
+        background-color: var(--backgroundcolor-green);
+    }
+
+    header{
+        border-bottom: 0px;
+        height: 140px;
+    }
 }

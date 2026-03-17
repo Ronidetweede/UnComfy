@@ -11,7 +11,7 @@ let returnButton = document.querySelector(".return-button");
 let titleTutorial = document.querySelector(".title-tutorial");
 let textTutorial = document.querySelector(".text-tutorial");
 let imageTutorial = document.querySelector(".img-tutorial");
-let counter = 0;
+let counter = 1;
 
 balls[counter].classList.add("active");
 
@@ -19,21 +19,37 @@ balls[counter].classList.add("active");
 console.log(balls.length);
 
 
-let continueButton = document.querySelector(".continue-button")
+// Logica is fout van de Counter
 
-        titleTutorial.textContent = titles[counter];
-        textTutorial.textContent = text[counter];
+let continueButton = document.querySelector(".continue-button");
 
-        continueButton.addEventListener("click",(e) => {
-        e.preventDefault();
-        counter++;
-        balls[counter].classList.add("active");
-        balls[counter - 1].classList.remove("active");
-        
-        imageTutorial.src = `./assets/tutorial/Part${counter + 1}.png`
-        titleTutorial.textContent = titles[counter];
-        textTutorial.textContent = text[counter];
-        
-        console.log(`button pressed`);
-        returnButton.style.display = "flex";        
-        });
+titleTutorial.textContent = titles[counter];
+textTutorial.textContent = text[counter];
+
+continueButton.addEventListener("click",(e) => {
+e.preventDefault();
+counter++;
+balls[counter].classList.add("active");
+balls[counter - 1].classList.remove("active");
+
+imageTutorial.src = `./assets/tutorial/Part${counter}.png`
+titleTutorial.textContent = titles[counter];
+textTutorial.textContent = text[counter];
+
+console.log(`button pressed`);
+returnButton.style.display = "flex";        
+});
+
+returnButton.addEventListener("click", (e) => {
+e.preventDefault();
+counter--;
+balls[counter].classList.add("active");
+balls[counter - 1].classList.remove("active");
+
+imageTutorial.src = `./assets/tutorial/Part${counter +1}.png`
+titleTutorial.textContent = titles[counter];
+textTutorial.textContent = text[counter];
+
+console.log(`button pressed`);
+returnButton.style.display = "flex";        
+});
