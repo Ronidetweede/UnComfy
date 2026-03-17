@@ -16,26 +16,56 @@
     <link rel="stylesheet" href="./css/general.css" />
     <link rel="stylesheet" href="./css/dailychallenges.css" />
         
-    <script type="module" src="./js/tutorial.js"></script>
+    <script type="module" src="./js/dailychallenges.js"></script>
   </head>
   <body>
+    <img src="./assets/Logo/Logo.png" class="logoDesktop">
     <header>
         <h3>«</h3>
         <h2>Daily Challenges</h2>
     </header>
     <main>
         <!--Voeg inputfield in en filter pillen-->
+        <section class="filterChallenges">
+            <form action="" method="post">
+                <input type="text" name="sort" class="search-Challenge" placeholder="Zoek Challenges...">
+            </form>
+        </section>
+        <section class="info-available-challenges">
+            <div class="available-challenges">
+                <h2>Beschikbaar</h2>
+                <p>40</p>
+            </div>
+            <div class="completed-challenges">
+                <h2>Gedaan</h2>
+                <p>4</p>
+            </div>
+        </section>
+
+        <section class="filter-Pills-Section">
+            <div class="filter-Pills">
+                        <h3>Alle Challenges</h3>
+                        <h3>Sociaal</h3>
+                        <h3>Fysiek</h3>
+                        <h3>Publiek</h3>
+                        <h3>Mentaal</h3>
+                </div>
+        </section>
+
         <section class="dailyCards">
+
             <div class="challengeCard">
                 <div class="image-challenge">
                     <div class="difficulity-pill">
-                        <img src="./assets/ChallengeImages/Antwerpen.png" alt="lol" class="image-card">
                         <h3>Medium</h3>
+                        <h3>Outside</h3>
                 </div></div>
                 <div class="info-Card">
                     <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
-                    <p class="location-name">🚩 Stadhuis Antwerpen</p>
-                    <p class="people-joined">🕵️‍♀️ 40 mensen gejoined</p>
+                    <div class="extra-InfoCard">
+                        <p class="location-name"><img src="assets/icons/green-location.png" alt="Huis-icoon"> Stadhuis Antwerpen</p>
+                        <p class="people-joined"><img src="assets/icons/green-people.png" alt="Huis-icoon"> 40  gejoined</p>
+                    </div>
                     <button class="card-button">Accepteer Challenge</button>
                 </div>
             </div>
@@ -43,10 +73,10 @@
     </main>
     <footer>
         <div class="menu-icons">
-            <a href="menu.html"><img src="assets/icons/home.png" alt="Huis-icoon"></a>
-            <a href="dailychallenges.html"><img src="assets/icons/green-discover.png" alt="Ontdek-icoon"></a>
-            <a href="rewards.html"><img src="assets/icons/rewards.png" alt="Beloning-icoon"></a>
-            <a href="profile-page.html"><img src="assets/icons/person.png" alt="Persoon-icoon"></a>
+            <a href="menu.html"><img src="assets/icons/home.png" alt="Huis-icoon"><p>Thuis</p></a>
+            <a href="dailychallenges.html"><img src="assets/icons/discover.png" alt="Ontdek-icoon"><p>Verken</p></a>
+            <a href="rewards.html"><img src="assets/icons/rewards.png" alt="Beloning-icoon"><p>Rewards</p></a>
+            <a href="profile-page.html"><img src="assets/icons/person.png" alt="Persoon-icoon"><p>Profiel</p></a>
         </div>
     </footer>
   </body>

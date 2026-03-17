@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="nl-BE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Un(comfy) - Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/submitchallenge.css" />
+        
+    <script type="module" src="./js/tutorial.js"></script>
+  </head>
+  <body>
+    <!-- Logo Hoort bij de "header" -->
+      <img src="./assets/Logo/Logo.png" class="logoDesktop">
+    <header>
+        <h3>«</h3>
+        <h2>
+            Stuur bewijs    
+        </h2>
+        <p>Laat ons je prestatie zien</p>
+    </header>
+
+    <main>
+       <div class="challengeCard">
+        <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
+        <p class="location-name"><img src="/assets/icons/small-white-location.png" alt=""> Stadhuis Antwerpen</p>
+       </div>
+
+       <h2>Upload Foto's</h2>
+       <section class="upload-zone">
+        <div class="takeimage">
+            <input type="file" class="selfie" name="selfie" accept="image/*" capture="enviroment"/>
+            <button type="button" class="custom-selfie"><img src="/assets/icons/green-camera.png" alt=""> <p>Neem Foto</p></button></div>
+      
+       <div class="upload-image">
+            <input type="file" class="selfie" name="selfie" accept="image/*" capture="enviroment"/>
+            <button type="button" class="custom-selfie"><img src="/assets/icons/upload.png" alt=""><p>Upload</p></button></div>
+       </section>
+
+       <!--Voeg een extra submit button die onzichtbaar is waar je de input naar kunt sturen, je moet dit doen om te button te kunnen stylen voor de input-->
+
+       <h2>Descriptie</h2>
+       <div class="description">
+        
+       <input type="text" name="description" class="description-input" placeholder="Tell us about your experience...">
+       </div>
+
+       <button type="submit" class="submit-challenge">Verzenden & verdien 150 CP</button>
+    </main>
+    <footer>
+        <div class="menu-icons">
+            <a href="menu.html"><img src="assets/icons/home.png" alt="Huis-icoon"><p>Thuis</p></a>
+            <a href="#"><img src="assets/icons/discover.png" alt="Ontdek-icoon"><p>Verken</p></a>
+            <a href="rewards.html"><img src="assets/icons/rewards.png" alt="Beloning-icoon"><p>Rewards</p></a>
+            <a href="profile-page.html"><img src="assets/icons/person.png" alt="Persoon-icoon"><p>Profiel</p></a>
+        </div>
+    </footer>
+  </body>
+</html>
