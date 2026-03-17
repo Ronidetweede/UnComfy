@@ -38,7 +38,7 @@
 .reward {
     display: grid;
     grid-template-columns: 65px 1fr 58px;
-    gap: 17px;
+    gap: 14px;
     border-bottom: 0.2px solid var(--backgroundcolor-green);
     align-items: center;
 }

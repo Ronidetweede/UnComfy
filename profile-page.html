@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="css/profile-page.css">
+    <script type="module" src="js/profile-page.js"></script>
 </head>
 <body>
     <header>
@@ -25,9 +26,18 @@
                     <h2>Helena Hills</h2> 
                 </div>
                 <div class="dropdown">
-                    <button><img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon"></button>
-                    <div class="menu">
-                        
+                    <button id="menu-toggle">
+                        <img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon">
+                    </button>
+                    <div id="menu" class="menu hidden">
+                        <a href="">Profiel</a>
+                        <a href="avatar.html">Avatar</a>
+                        <a href="subscription.html">Neem Premium</a>
+                        <a href="tutorial.html">Tutorial</a>
+                        <a href="terms-of-service.html">Gebruiksvoorwaarden</a>
+                        <a href="privacy-policy.html">Privacyverklaring</a>
+                        <a href="settings.html">Instellingen</a>
+                        <a href="login.html">Uitloggen</a>
                     </div>
                 </div>
                 <!-- Dit zijn placeholders! Inladen met javascript/typescript -->  
@@ -43,12 +53,12 @@
         </div>
 
         <div class="tabs">
-            <button class="timeline-button">
-                <img src="assets/icons/icon-timeline.png" alt="Klok-icoon">
+            <button id="timeline-button" class="timeline-button active">
+                <img id="timeline-icon" src="assets/icons/icon-timeline.png" alt="Klok-icoon">
                 <p>Tijdlijn</p>
             </button>
-            <button class="gallery-button">
-                <img src="assets/icons/icon-gallery.png" alt="Galerij-icoon">
+            <button id="gallery-button" class="gallery-button">
+                <img id="gallery-icon" src="assets/icons/icon-gallery-gray.png" alt="Galerij-icoon">
                 <p>Galerij</p>
             </button>
         </div>
@@ -58,12 +68,12 @@
             <a href="achievements.html">Bekijk Alle</a>
         </div>
 
-        <div class="achievements">
+        <div id="achievements" class="achievements">
             <div class="achievement"><a href="">
                 <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
                 <div class="overlay"></div>
                 <div class="description">
-                    <p>Go on a solo dinner</p>
+                    <p>Ga alleen uit eten</p>
                     <div class="points">
                         <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
                         <span>100</span>
@@ -78,7 +88,7 @@
                 <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
                 <div class="overlay"></div>
                 <div class="description">
-                    <p>Go on a solo dinner</p>
+                    <p>Ga alleen uit eten</p>
                     <div class="points">
                         <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
                         <span>100</span>
@@ -93,7 +103,7 @@
                 <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
                 <div class="overlay"></div>
                 <div class="description">
-                    <p>Go on a solo dinner</p>
+                    <p>Ga alleen uit eten</p>
                     <div class="points">
                         <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
                         <span>100</span>
