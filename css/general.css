@@ -45,6 +45,7 @@
 
 body {
     min-height: 100vh;
+    padding-bottom: 40px;
     font-family: var(--font-body);
     font-size: var(--fs-body-mobile);
     color: var(--text-black);
@@ -107,7 +108,7 @@ body{
         /* Grid  Dit kan technisch gezien ook bij de general*/ 
         display: grid;
         grid-template-columns: 256px auto;
-        grid-template-rows: 140px auto;
+        grid-template-rows: 100px auto;
         gap: 0px;
         
     }
@@ -156,6 +157,7 @@ header > h2{
         grid-column: 2;
     }
 footer{
+        padding-top: 50px;
         grid-column: 1;
         grid-row: 2/3;
 

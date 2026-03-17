@@ -1,6 +1,6 @@
 "use strict";
 
-import challenges from "../assets/jsonChallenges.json" with  {type : 'json'};
+import challenges from "../data/jsonChallenges.json" with  {type : 'json'};
 
 const cardLocation = document.querySelector(".dailyCards");
 
