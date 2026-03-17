@@ -64,6 +64,10 @@
     background: var(--backgroundcolor-header-green);
 }
 
+.hidden {
+    display: none;
+}
+
 .points-card {
     background: white;
     width: 85%;
