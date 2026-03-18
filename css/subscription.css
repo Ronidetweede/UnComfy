@@ -1,5 +1,5 @@
 body {
-  background-color: var(--backgroundcolor);
+  background-color: var(--backgroundcolor-green);
   color: var(--text-white);
   gap: 2rem;
 }
@@ -23,13 +23,13 @@ img {
 
 .support-text {
   margin-bottom: 3rem;
-  background-color: var(--backgroundcolor-dark);
+  background-color: var(--backgroundcolor-dark-green);
   padding: 8px 16px;
   border-radius: 20px;
 }
 
 main section > div {
-  border: 4px solid var(--backgroundcolor-dark);
+  border: 4px solid var(--backgroundcolor-dark-green);
   background-color: #afdab5;
   padding: 0.3rem 0.3rem;
   border-radius: var(--border-radius);
@@ -60,7 +60,7 @@ main section > div {
   top: -23px;
   right: 0px;
 
-  background-color: var(--backgroundcolor-dark);
+  background-color: var(--backgroundcolor-dark-green);
   padding: 0.2rem 0.2rem;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
@@ -82,15 +82,16 @@ del {
 
 main > a {
   margin: 2rem 0;
+  text-decoration: underline;
 }
 
 .reviews-container {
-    /* Flexbox */
-    display: flex;
-    gap: 1rem;
+  /* Flexbox */
+  display: flex;
+  gap: 1rem;
 
-    margin: 0 1rem;
-    max-width: 500px;
+  margin: 0 1rem;
+  max-width: 500px;
 }
 
 .review {
@@ -125,21 +126,21 @@ main > a {
 }
 
 footer {
-    color: var(--text-black);
-    padding: 1rem;
-    text-align: left;
+  color: var(--text-black);
+  padding: 1rem;
+  text-align: left;
 
-    align-items: start;
+  align-items: start;
 }
 
 footer h2 {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 footer p {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 footer span {
-    font-weight: 600;
+  font-weight: 600;
 }
