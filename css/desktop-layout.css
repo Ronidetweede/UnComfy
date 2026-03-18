@@ -1,0 +1,94 @@
+/* Oppassen bij mergen, hier kunnen grote conflicten kopen (●'◡'●) */
+
+@media only screen and (min-width:1024px) {
+
+body{
+        /* Grid  Dit kan technisch gezien ook bij de general*/ 
+        display: grid;
+        grid-template-columns: 256px auto;
+        grid-template-rows: 100px auto;
+        gap: 0px;
+        padding-bottom: 0px;
+
+        
+    }
+
+.logoDesktop{
+        display: block;
+        color: black;
+
+        grid-column: 1;
+        grid-row: 1;
+
+        justify-self: center;
+      align-self: center;
+    }
+
+main{
+  padding-top: 20px;
+  grid-column: 2;
+  grid-row: 2;
+  gap: 12px;
+  background-color: #E8F5EA;
+}
+
+footer > .menu-icons > a{
+  display: flex;
+  align-items: center;
+
+}
+footer > .menu-icons > a > p{
+
+  display: block;
+  
+}
+
+header {
+  background-color: var(--backgroundcolor-green);
+  color: var(--text-white);
+  grid-column: 2/3;
+  grid-row: 1;
+  height: 140px;
+  border-bottom: 0px;
+
+}
+header > h2{
+        font-weight: bold;
+        grid-column: 2;
+    }
+footer{
+        padding-top: 50px;
+        grid-column: 1;
+        grid-row: 2/3;
+
+        border-radius: 0px 50px 0px 0px;
+        background-color: var();
+    }
+
+    footer > .menu-icons{
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        
+    }
+
+    footer > .menu-icons > a{
+        width: 200px;
+        padding: 20px;
+        border-radius: 10px;
+
+        /* Flex-Box */
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+  header > h3{
+        display: none;
+    }
+    header > h2{
+        font-weight: bold;
+        grid-column: 1/3;
+    }
+}
