@@ -1,0 +1,237 @@
+header{
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+
+header > h3{
+    display: none;
+}
+
+main{
+    gap: 30px;
+    padding: 20px;
+}
+.title-page{
+    font-size: 18px;
+    font-weight: 600;
+    
+    align-self: flex-start;
+}
+
+.collection-start{
+    display: flex;
+    flex-direction: column;
+
+    
+    align-self: flex-start;
+}
+
+.collection-title{
+    font-size: var(--fs-heading-mobile);
+    font-weight: bold;
+    justify-self: start;
+    align-self: flex-start;
+}
+
+.collection-desc{
+    align-self: flex-start;
+    color: var(--text-muted);
+}
+
+.active-challenges{
+    width: 100%;
+    /* Flex-Box */
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.challengeCard{
+    height: 400px;
+    width: 90%;
+    padding: 0px 0px 20px 0px;
+
+    max-height: 420px;
+
+    border: 2px solid var(--backgroundcolor-green);
+    border-radius: 24px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
+    
+    /* Flex-box */
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 65% 35%;
+    
+    background-color: white;
+}
+.difficulity-pill{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 3px;
+
+}
+
+.difficulity-pill > h3{
+    background-color: white;
+    padding: 3px;
+    border-radius: 100px;
+}
+.image-challenge{
+    width: 100%;
+    
+    background-image: url("../assets/ChallengeImages/Antwerpen.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    border-radius: 24px 24px 0px 0px;
+}
+
+.image-card{    
+    object-fit :cover;
+    border-radius: 24px 24px 0px 0px;
+    grid-row: 1;
+}
+
+.info-Card{
+    grid-row: 2;
+    display: grid;
+    gap: 12px;
+    padding: 20px 20px 0px 20px;
+    color: var(--text-muted);
+}
+
+.extra-InfoCard{
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.info-Card > .title-challenge{
+    font-size: 18px; 
+    color: var(--text-black);
+}
+
+.info-Card > p{
+    font-size: var(--fs-body-mobile);
+}
+
+
+.premium-challenges{
+    display: grid;
+    flex-direction: column;
+
+    align-items: center;
+    justify-items: center;
+    gap: 16px
+}
+
+.premium-challenges > h2{
+    font-size: var(--fs-heading-mobile);
+    font-weight: bold;
+    
+    justify-self: start;
+}
+
+.premium-challenges > p {
+    color: var(--text-muted);
+    justify-self: start;
+
+}
+
+.badge-premium {
+    background-color: rgb(255 255 255 / 20%);
+    padding: 10px;
+    border-radius: 100px; 
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.view-details{
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.track > h3{
+    color: var(--text-black);
+    font-weight: bold;
+
+}
+
+.view-details > .track{
+    display: flex;
+    flex-direction: column;
+}
+
+.premium-container{
+    width: 90%;
+    background-color: var(--backgroundcolor-green);
+    color: var(--text-white);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;   
+
+    align-content: center;
+    align-items: center;
+}
+
+.premium-container > h2{
+    align-self: flex-start;
+    font-size: var(--fs-heading-mobile);
+    font-weight: bold;
+}
+
+.premium-container > ul{
+    /* Flex-Box */
+    display: flex;
+    flex-direction: column;
+    
+    align-self: flex-start;
+    
+    gap: 12px;
+}
+
+.premium-container > ul > li > p{
+    /* Flex-Box */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+.premium-container > h1{
+    font-size: var(--fs-heading-mobile);
+    font-weight: bold;   
+
+    align-self: flex-start;
+}
+
+.premium-container > .card-button{
+    width: 100%;
+    height: 48px;
+    border-radius: 8px;
+
+    background-color: white;
+    color: var(--backgroundcolor-green);
+
+    text-align: center;
+}
+
+@media only screen and (min-width:1024px) {
+
+header{
+    border-bottom: 0px;
+}
+}

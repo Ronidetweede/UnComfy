@@ -2,39 +2,43 @@ body{
     padding: 0px 12px 0px 12px;
 }
 
-.page-Content{
+main{
+    justify-content: center;   
+}
+
+.generator-content{
     display: flex;
     flex-direction: column;
 
-    margin: auto;
 }
 
-.page-Content > .top-Part > h2{
+.generator-content > .top-Part > h2{
     text-align: center;
     font-size: var(--fs-heading-mobile);
     font-weight: bold;
 
 }
 
-.page-Content > .top-Part > p{
+.generator-content > .top-Part > p{
     color: var(--text-muted);
     text-align: center;
     font-size: var(--fs-body-mobile);
 
 }
 
-.page-Content > .top-Part > img{
+.generator-content > .top-Part > img{
     width: 96px;
     height: 96px;
 }
 
-.page-Content > .info-Generator{
+.generator-content > .info-Generator{
     background-color: #D8D8F8;
 
     padding: 20px 0px 20px 30px;
     margin: 20px;
     border-radius: 12px;
 
+    /* Flex-Box */
     display: flex;
     flex-direction: column;
     
@@ -42,13 +46,13 @@ body{
     
 }
 
-.page-Content > .info-Generator > h2{
+.generator-content > .info-Generator > h2{
     font-size: 20px;
     font-weight: bold;
 
 }
 
-.page-Content > .info-Generator > ul{
+.generator-content > .info-Generator > ul{
     list-style: disc;
     display: flex;
     flex-direction: column;
@@ -65,6 +69,7 @@ body{
     border-radius: 16px;
     margin-bottom: 10px;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
+    cursor: pointer;
 }
 
 .top-Part{
@@ -82,4 +87,21 @@ body{
     align-self: center;
     
     cursor: pointer;
+}
+
+.generator-buttons{
+    display: flex;
+    flex-direction: column;
+    
+    justify-items: center;
+    align-items: center;
+}
+
+@media only screen and (min-width:1024px) {
+    main{
+        grid-column: 1/3;
+        grid-row: 1/3;
+        padding: 0px;
+    }
+    
 }
