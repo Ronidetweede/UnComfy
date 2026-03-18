@@ -6,8 +6,42 @@ header {
   padding: 2rem;
 }
 
+main {
+  gap: 2rem;
+}
+
+.todays-challenge-section > h2 {
+  text-align: center;
+  font-size: var(--fs-heading-mobile);
+  font-weight: var(--font-weight);
+  margin-bottom: 1rem;
+}
+
+.todays-challenge {
+  position: relative;
+
+  background-image: url("../assets/placeholders/location1.png");
+  width: 300px;
+  height: 150px;
+  background-size: cover;
+  
+  font-size: var(--fs-heading-mobile);
+  color: var(--text-white);
+  text-align: center;
+  font-weight: 600;
+  text-shadow: var(--text-shadow);
+  
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
+  /* Flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .streak-container {
-  max-width: 300px;
+  width: 300px;
   padding: 25px;
   border-radius: var(--border-radius);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -49,12 +83,12 @@ header {
 }
 
 .completed {
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  color: var(--backgroundcolor);
+  box-shadow: var(--box-shadow);
+  color: var(--backgroundcolor-green);
 }
 
 .active {
-  border: 2px solid var(--backgroundcolor);
+  border: 2px solid var(--backgroundcolor-green);
 }
 
 .disabled {
@@ -72,3 +106,48 @@ header {
   border-radius: 12px;
   color: var(--text-muted);
 }
+
+.leaderboard {
+  width: 300px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2.5rem;
+  background-color: var(--backgroundcolor-green);
+  padding: 1rem;
+
+  /* Flexbox */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.leaderboard > h2 {
+  font-size: var(--fs-heading-mobile);
+  font-weight: var(--font-weight);
+}
+
+.profile-images {
+  /* Flexbox */
+  display: flex;
+  flex-direction: row;
+
+  position: relative;
+}
+
+.profile-1 {
+  width: 200px;
+}
+.profile-2 {
+  width: 60px;
+  position: absolute;
+  left: -20px;
+  bottom: -5px;
+}
+.profile-3 {
+  width: 60px;
+  position: absolute;
+  right: -10px;
+  bottom: -15px;
+}
+

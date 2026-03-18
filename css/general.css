@@ -26,6 +26,15 @@
     --text-white: #ffffff;
     --text-muted: #828282;
 
+    /* Font Weight */
+    --font-weight: 600;
+
+    /* Text Shadow */
+    --text-shadow: 0px 2px 8px rgba(0,0,0,0.8);
+
+    /* Box Shadow */
+    --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+
     /* Mobile */
     --fs-body-mobile: 14px;  /* 14–18px */
     --fs-heading-mobile: 24px; /* 24–32px */
@@ -41,6 +50,7 @@
 
     /* Button */
     --button-color-grey: #EEEEEE;
+
 }
 
 body {
