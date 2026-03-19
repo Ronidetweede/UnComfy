@@ -1,9 +1,13 @@
-header {
+.mobile-header {
   font-size: var(--fs-heading-mobile);
   font-family: var(--font-signature);
   font-weight: 600;
   line-height: 1.5rem;
   padding: 2rem;
+}
+
+.desktop-header {
+  display: none;
 }
 
 main {
@@ -24,13 +28,14 @@ main {
   width: 300px;
   height: 150px;
   background-size: cover;
-  
+  background-position: center;
+
   font-size: var(--fs-heading-mobile);
   color: var(--text-white);
   text-align: center;
   font-weight: 600;
   text-shadow: var(--text-shadow);
-  
+
   border-radius: var(--border-radius);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 
@@ -42,7 +47,7 @@ main {
 
 .streak-container {
   width: 300px;
-  padding: 25px;
+  padding: 2rem;
   border-radius: var(--border-radius);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -68,7 +73,7 @@ main {
   display: flex;
   justify-content: space-between;
 
-  margin: 25px 0;
+  margin: 1.5rem 0;
 }
 
 .day {
@@ -88,7 +93,7 @@ main {
 }
 
 .active {
-  border: 2px solid var(--backgroundcolor-green);
+  border: .1rem solid var(--backgroundcolor-green);
 }
 
 .disabled {
@@ -102,8 +107,8 @@ main {
   justify-content: space-between;
 
   background: #f5f5f5;
-  padding: 12px 15px;
-  border-radius: 12px;
+  padding: 1rem;
+  border-radius: var(--border-radius);
   color: var(--text-muted);
 }
 
@@ -111,9 +116,9 @@ main {
   width: 300px;
   border-radius: var(--border-radius);
   box-shadow: var(--box-shadow);
-  margin-bottom: 2.5rem;
   background-color: var(--backgroundcolor-green);
   padding: 1rem;
+  color: var(--text-white);
 
   /* Flexbox */
   display: flex;
@@ -139,15 +144,116 @@ main {
   width: 200px;
 }
 .profile-2 {
-  width: 60px;
+  width: 50px;
   position: absolute;
   left: -20px;
   bottom: -5px;
 }
 .profile-3 {
-  width: 60px;
+  width: 50px;
   position: absolute;
   right: -10px;
   bottom: -15px;
 }
 
+.explore-challenges {
+  padding: 2rem;
+  width: 300px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  background-image: url("../assets/placeholders/location2.png");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-size: var(--fs-heading-mobile);
+  font-weight: var(--font-weight);
+  color: var(--text-white);
+  text-shadow: var(--text-shadow);
+  margin-bottom: 1rem;
+}
+
+/* --- DESKTOP VERSION (min-width: 1024px) --- */
+
+@media screen and (min-width: 1024px) {
+  main {
+    background-color: #f8f8f8;
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+      "challenge challenge"
+      "streak leaderboard"
+      "explore explore";
+    
+      gap: 1rem;
+  }
+  .todays-challenge-section {
+    grid-area: challenge;
+  }
+  .streak-container {
+    grid-area: streak;
+  }
+  .leaderboard {
+    grid-area: leaderboard;
+  }
+  .explore-challenges {
+    grid-area: explore;
+  }
+
+  .mobile-header {
+    display: none;
+  }
+  .desktop-header {
+    display: unset;
+    background-color: var(--backgroundcolor-green);
+
+    display: flex;
+    align-items: start;
+    padding-top: 1.5rem;
+    padding-left: 1rem;
+  }
+
+  .desktop-header > h2 {
+    font-size: var(--fs-heading-desktop);
+  }
+
+  .todays-challenge-section > h2 {
+    text-align: start;
+  }
+
+  .streak-container {
+    background-color: var(--text-white);
+  }
+
+  .todays-challenge, .streak-container, .leaderboard, .explore-challenges {
+    width: 100%;
+  }
+
+  .leaderboard {
+    height: 240px;
+    padding: 2rem;
+  }
+
+  .profile-2 {
+  width: 60px;
+  position: absolute;
+  left: -10px;
+  bottom: -5px;
+}
+.profile-3 {
+  width: 60px;
+  position: absolute;
+  right: -5px;
+  bottom: 0px;
+}
+
+.explore-challenges {
+  height: 150px;
+
+  /* Flexbox */
+  display: flex;
+  justify-content: center;
+}
+}
