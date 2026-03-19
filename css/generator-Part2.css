@@ -110,11 +110,11 @@ main{
 
 .difficulty-List > li > label:hover{
     border: 2px solid var(--backgroundcolor-green);
+    cursor: pointer;
 }
 
 .difficulty-List > li > label.active{
     border: 2px solid var(--backgroundcolor-green);
-
 }
 
 
