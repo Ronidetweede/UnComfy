@@ -157,6 +157,8 @@ footer {
   }
 
   body {
+    padding-bottom: 0;
+    
     /* Grid */
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -170,15 +172,24 @@ footer {
 
   header {
     grid-area: header;
+    margin-bottom: 0;
+    height: 75px;
   }
   main {
     grid-area: main;
+    padding-top: 2rem;
+    background-color: #f8f8f8;
   }
   footer {
     grid-area: footer;
   }
 
-
+  .text-edit-profile {
+    text-align: left;
+  }
+  header > h2 {
+    margin-left: 1rem;
+  }
 
   footer > .menu-icons > a {
     display: flex;
@@ -214,4 +225,41 @@ footer {
     gap: 16px;
   }
 
+  main {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+      "picture picture"
+      "info settings"
+      "button button";
+
+      align-items: start;
+
+      padding: 3rem;
+  }
+
+  .profile-picture {
+    grid-area: picture;
+
+    justify-self: center;
+    align-self: center;
+  }
+  .personal-info {
+    grid-area: info;
+    justify-self: center;
+    width: 350px;
+
+  }
+  .account-settings {
+    grid-area: settings;
+    justify-self: center;
+    width: 350px;
+  }
+  .save-button {
+    grid-area: button;
+    position: unset;
+    justify-self: center;
+  }
 }
