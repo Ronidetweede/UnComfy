@@ -107,7 +107,7 @@ nextButton.addEventListener("click", (e) => {
 
         nextButton.classList.remove("active");
     }else if(nextButton.classList.contains("active")  && counter === 5){
-        window.location.href = "generator.html";
+        window.location.href = "menu.html";
 
     }
     
