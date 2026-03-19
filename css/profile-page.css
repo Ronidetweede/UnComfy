@@ -1,9 +1,10 @@
-.green-box {
+.header {
     background: linear-gradient(180deg, var(--backgroundcolor-green) 70%, var(--backgroundcolor-header-green));
     height: 175px;
     width: 100%;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+        box-shadow: 0 3px 5px 0 lightgray;
 }
 
 .profile {

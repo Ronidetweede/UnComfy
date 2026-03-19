@@ -1,4 +1,4 @@
-.green-box {
+.header {
     background-color: var(--backgroundcolor-green);
     width: 100%;
     height: 40px;
@@ -8,21 +8,13 @@
     align-items: center;
 }
 
-.green-box a {
+.header a {
     position: absolute;
-    left: 8px;
-    font-size: 11px;
+    left: 12px;
 }
 
-.green-box h2 {
+.header h2 {
     font-weight: 500;
-}
-
-.green-box span {
-    position: absolute;
-    font-size: 13px;
-    right: 8px;
-    color: var(--text-white);
 }
 
 .achievements {

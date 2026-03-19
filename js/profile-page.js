@@ -35,7 +35,7 @@ menuButton.addEventListener("click", () => {
 });
 
 document.addEventListener("click", (e) => {
-  if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+  if (!menu.contains(e.target) && !menuButton.contains(e.target)) {
     menu.classList.add("hidden");
   }
 });
