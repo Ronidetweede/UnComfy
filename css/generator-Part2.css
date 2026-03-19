@@ -1,0 +1,130 @@
+main{
+    justify-content: center;
+}
+
+.progress-Questions{
+    width: 80vmin;
+
+    /* Flex-Box */
+    display: flex;
+    
+    
+    justify-content: space-between;
+    align-content: space-around;
+    
+    align-items: center;
+    
+
+}
+
+.assessment-Container{
+    padding: 0px 16px 0px 16px;
+
+
+    /* Flex - Box */
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+    align-items: center;
+
+}
+
+.title-Question{
+    font-size: var(--fs-heading-mobile);
+    font-weight: bold;
+
+}
+
+.questions-Container{
+
+    /* Flex-Box */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.desc-Question{
+    color: var(--text-muted);
+    align-self: flex-start;
+
+}
+
+.generator-Button{
+    align-self: center;
+    width: 60vmin;
+    height: 48px;
+    text-align: center;
+    background-color: lightgray;
+    color: var(--text-muted);
+    border-radius: 16px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
+}
+
+.generator-Button.active{
+    background-color: var(--backgroundcolor-green);
+    color: var(--text-white);
+    cursor: pointer;
+}
+
+.difficulty-List{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    align-items: center;
+
+}
+
+.custom-Radio{
+    width: 20px;
+    height: 20px;
+
+    border: 2px solid #D1D5DB;
+    border-radius: 100px;
+    color: white;
+    background-color: whi;
+}
+
+.custom-Radio.active{
+    border: 2px solid var(--backgroundcolor-green);
+    color: var(--backgroundcolor-green);
+    background-color: var(--backgroundcolor-green);
+}
+
+.difficulty-List > li > label{
+    padding: 18px;
+    width: 80vmin;
+    height: 60px;
+    border: 2px solid #E5E7EB;
+    border-radius: 12px;
+
+    /* Flex-Box */
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.difficulty-List > li > label:hover{
+    border: 2px solid var(--backgroundcolor-green);
+}
+
+.difficulty-List > li > label.active{
+    border: 2px solid var(--backgroundcolor-green);
+
+}
+
+
+@media only screen and (min-width:1024px) {
+    main{
+        grid-column: 1/3;
+        grid-row: 1/3;
+        padding: 0px;
+    }
+
+    
+    
+}

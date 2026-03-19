@@ -58,7 +58,7 @@ form > * {
 }
 
 .continue-button {
-  background-color: var(--backgroundcolor);
+  background-color: var(--backgroundcolor-green);
   color: var(--text-white);
   cursor: pointer;
 
