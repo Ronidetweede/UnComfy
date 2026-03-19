@@ -172,6 +172,12 @@ main {
   margin-bottom: 1rem;
 }
 
+
+.white-icon {
+    display: none;
+}
+
+
 /* --- DESKTOP VERSION (min-width: 1024px) --- */
 
 @media screen and (min-width: 1024px) {
@@ -192,6 +198,12 @@ main {
   .todays-challenge-section {
     grid-area: challenge;
   }
+
+  footer > .menu-icons > a:nth-child(1){
+      background-color: var(--backgroundcolor-green);
+      color: white;
+  }
+
   .streak-container {
     grid-area: streak;
   }
@@ -256,4 +268,21 @@ main {
   display: flex;
   justify-content: center;
 }
+
+.todays-challenge-link {
+  width: 100%;
+  grid-column: 1/3;
+  
+}
+
+.black-icon{
+display: none;
+}
+
+.white-icon {
+display: block;
+}
+
+
+
 }

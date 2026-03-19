@@ -142,6 +142,10 @@ footer {
   margin-top: 6rem;
 }
 
+.white-icon {
+display: none;
+}
+
 /* --- DESKTOP VERSION (min-width: 1024px) --- */
 
 @media screen and (min-width: 1024px) {
@@ -161,7 +165,7 @@ footer {
     
     /* Grid */
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 256px auto;
     grid-template-rows: auto 1fr 1fr;
 
     grid-template-areas:
@@ -182,6 +186,11 @@ footer {
   }
   footer {
     grid-area: footer;
+  }
+
+  footer > .menu-icons > a:nth-child(4){
+      background-color: var(--backgroundcolor-green);
+      color: white;
   }
 
   .text-edit-profile {
@@ -262,4 +271,12 @@ footer {
     position: unset;
     justify-self: center;
   }
+
+.black-icon{
+display: none;
+}
+
+.white-icon {
+display: block;
+}
 }

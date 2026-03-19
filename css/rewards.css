@@ -71,3 +71,47 @@
 .points img {
     width: 7px;
 }
+
+.white-icon {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+footer > .menu-icons > a:nth-child(3){
+      background-color: var(--backgroundcolor-green);
+      color: white;
+  }
+.black-icon{
+display: none;
+}
+
+.white-icon {
+display: block;
+}
+
+header{
+    justify-content: start;
+    align-content: start;
+
+    justify-items: start;
+    align-items: start;
+    height: 100px;
+}
+
+header > .green-box > h2{
+    font-size: var(--fs-heading-desktop);
+    font-weight: bold;
+}
+.green-box{
+    align-self: flex-start;
+
+    justify-content: start;
+    align-content: center;
+    height: 140px;
+    padding-left: 2rem;
+}
+
+
+
+}

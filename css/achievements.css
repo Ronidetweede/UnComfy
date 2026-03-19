@@ -69,6 +69,10 @@
     bottom: 8px;
     width: 22px;
 }
+.white-icon {
+    display: none;
+}
+
 
 @media screen and (min-width: 768px) {
     .achievements {
@@ -80,4 +84,32 @@
     .achievements {
         grid-template-columns: repeat(4, 1fr);
     }
+
+        .black-icon{
+    display: none;
+    }
+
+    .white-icon {
+    display: block;
+    }
+
+    footer > .menu-icons > a:nth-child(4){
+        background-color: var(--backgroundcolor-green);
+        color: white;
+    }
+
+
+.header{
+    justify-content: start;
+    align-content: start;
+
+    justify-items: start;
+    align-items: start;
+    height: 100px;
+}
+
+.header > h2{
+   font-size: var(--fs-heading-desktop);
+    font-weight: bold;
+}
 }

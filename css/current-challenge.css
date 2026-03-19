@@ -92,7 +92,7 @@ main{
 .image-challenge{
     width: 100%;
     
-    background-image: url("../assets/ChallengeImages/Antwerpen.png");
+    background-image: url("../assets/challenges/Antwerpen.png");
     background-repeat: no-repeat;
     background-size: cover;
 

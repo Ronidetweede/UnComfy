@@ -220,9 +220,15 @@
     width: 30px;
 }
 
+.white-icon {
+    display: none;
+}
+
+
+
 @media screen and (min-width: 1024px) {
     .points-card {
-        width: 280px;
+        width: 80%;
         height: 140px;
         margin: 30px -100px;
         display: inline-flex;
@@ -251,4 +257,17 @@
         margin: 0 50px 50px 50px;
         gap: 20px;
     }
+    .black-icon{
+    display: none;
+    }
+
+    .white-icon {
+    display: block;
+    }
+
+    footer > .menu-icons > a:nth-child(4){
+        background-color: var(--backgroundcolor-green);
+        color: white;
+    }
+
 }
