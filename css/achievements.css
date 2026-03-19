@@ -69,3 +69,15 @@
     bottom: 8px;
     width: 22px;
 }
+
+@media screen and (min-width: 768px) {
+    .achievements {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .achievements {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

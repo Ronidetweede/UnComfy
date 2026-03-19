@@ -129,7 +129,6 @@ main {
 
 .colors {
     width: 95%;
-    background: white;
     border-radius: 20px;
     padding: 15px;
 }
@@ -199,4 +198,10 @@ main {
     font-weight: bold;
     box-shadow: 0 5px 10px 0 lightgray;
     margin-bottom: 50px;
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        gap: 38px;
+    }
 }
