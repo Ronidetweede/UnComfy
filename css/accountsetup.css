@@ -139,5 +139,79 @@ select {
 }
 
 footer {
-  margin-top: 8rem;
+  margin-top: 6rem;
+}
+
+/* --- DESKTOP VERSION (min-width: 1024px) --- */
+
+@media screen and (min-width: 1024px) {
+  .logoDesktop {
+    display: block;
+    color: black;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-self: center;
+    align-self: center;
+  }
+
+  body {
+    /* Grid */
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr 1fr;
+
+    grid-template-areas:
+      "footer header"
+      "footer main"
+      "footer main";
+  }
+
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  footer {
+    grid-area: footer;
+  }
+
+
+
+  footer > .menu-icons > a {
+    display: flex;
+    align-items: center;
+  }
+  footer > .menu-icons > a > p {
+    display: block;
+  }
+  footer {
+    padding-top: 50px;
+    grid-column: 1;
+    grid-row: 2/3;
+
+    border-radius: 0px 50px 0px 0px;
+    background-color: var();
+  }
+
+  footer > .menu-icons {
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    width: 100%;
+  }
+
+  footer > .menu-icons > a {
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+
+    /* Flex-Box */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
 }
