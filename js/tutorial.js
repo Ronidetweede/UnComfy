@@ -27,7 +27,7 @@ e.preventDefault();
 counter++;
 
 if (counter === 5) {
-        window.location.href = "menu.html";
+        window.location.href = "generator.html";
 }
 
 circles[counter].classList.add("active");
