@@ -107,9 +107,10 @@ nextButton.addEventListener("click", (e) => {
 
         nextButton.classList.remove("active");
     }else if(nextButton.classList.contains("active")  && counter === 5){
-        percentageNumber.textContent = "100%"
-        console.log("YOOO")
+        window.location.href = "generator.html";
+
     }
+    
  
 })
 

@@ -37,9 +37,14 @@ body{
     border-radius: 500px;
 }
 
-.tutorial-circles div:nth-of-type(1).active {
+.tutorial-circles div.active {
     background-color: var(--backgroundcolor-green);
     width: 40px;
+}
+
+.tutorial-circles div.completed{
+    background-color: var(--backgroundcolor-green);
+    width: 10px;
 }
 
 .continue-button{
@@ -59,8 +64,8 @@ body{
 }
 
 .return-button{
-    background-color: var(--text-muted);
-    opacity: 30%;
+background-color: var(--text-muted);
+opacity: 30%;
   color: var(--text-white);
   cursor: pointer;
   width: 85%;

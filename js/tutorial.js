@@ -1,25 +1,20 @@
-const titles = ["Welcome to Un(Comfy)!", "Voltooi dagelijkse uitdagingen","Bouw je streaks op", "Verdien ComfyPoints", "Klaar om te starten"];
+const titles = ["Welcome bij Un(Comfy)!", "Voltooi dagelijkse uitdagingen","Bouw je streaks op", "Verdien ComfyPoints", "Klaar om te starten"];
 const text = ["Stap uit je comfortzone en groei met dagelijkse uitdagingen die zijn ontworpen om je te helpen de beste versie van jezelf te worden.", "Ga elke dag leuke en zinvolle uitdagingen aan. Van complimenten geven tot ochtendmeditaties, elke taak helpt je groeien.",
         "Blijf consequent en zie je reeks groeien! Hoe meer dagen je volhoudt, hoe sterker je gewoontes worden.", "Voltooi uitdagingen om ComfyPoints te verdienen! Gebruik ze om speciale functies te ontgrendelen en je voortgang bij te houden.",
         "Jouw reis begint nu. Laten we elke dag benutten en samen de onbekende wereld verkennen!"];
 
 
-let balls = document.querySelectorAll(".tutorial-circles div");
+let circles = document.querySelectorAll(".tutorial-circles div");
 
 let returnButton = document.querySelector(".return-button");
 
 let titleTutorial = document.querySelector(".title-tutorial");
 let textTutorial = document.querySelector(".text-tutorial");
 let imageTutorial = document.querySelector(".img-tutorial");
-let counter = 1;
+let counter = 0;
 
-balls[counter].classList.add("active");
-
-
-console.log(balls.length);
-
-
-// Logica is fout van de Counter
+circles[counter].classList.add("active");
+imageTutorial.src = `./assets/tutorial/Part${counter}.png`
 
 let continueButton = document.querySelector(".continue-button");
 
@@ -28,28 +23,42 @@ textTutorial.textContent = text[counter];
 
 continueButton.addEventListener("click",(e) => {
 e.preventDefault();
+
 counter++;
-balls[counter].classList.add("active");
-balls[counter - 1].classList.remove("active");
+
+if (counter === 5) {
+        window.location.href = "menu.html";
+}
+
+circles[counter].classList.add("active");
+circles[counter - 1].classList.remove("active");
+circles[counter - 1].classList.add("completed");
 
 imageTutorial.src = `./assets/tutorial/Part${counter}.png`
 titleTutorial.textContent = titles[counter];
 textTutorial.textContent = text[counter];
 
-console.log(`button pressed`);
-returnButton.style.display = "flex";        
+returnButton.style.display = "flex";       
+
+console.log(counter);
+
 });
 
 returnButton.addEventListener("click", (e) => {
 e.preventDefault();
-counter--;
-balls[counter].classList.add("active");
-balls[counter - 1].classList.remove("active");
 
-imageTutorial.src = `./assets/tutorial/Part${counter +1}.png`
+if (counter != 0) {
+  circles[counter - 1].classList.remove("completed");
+circles[counter].classList.remove("active");
+circles[counter -1].classList.add("active");
+counter--;
+
+
+imageTutorial.src = `./assets/tutorial/Part${counter}.png`
 titleTutorial.textContent = titles[counter];
 textTutorial.textContent = text[counter];
 
-console.log(`button pressed`);
-returnButton.style.display = "flex";        
+returnButton.style.display = "flex";       
+}
+       
 });
