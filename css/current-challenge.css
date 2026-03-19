@@ -51,6 +51,13 @@ main{
     align-items: center;
 }
 
+.active-challenges > a{
+    width: 100%;
+    display: flex;
+
+    justify-content: center;
+}
+
 .challengeCard{
     height: 400px;
     width: 90%;
@@ -229,9 +236,27 @@ main{
     text-align: center;
 }
 
+.white-icon {
+    display: none;
+}
+
 @media only screen and (min-width:1024px) {
 
 header{
     border-bottom: 0px;
 }
+footer > .menu-icons > a:nth-child(2){
+        background-color: var(--backgroundcolor-green);
+        color: white;
+}
+
+.black-icon{
+    display: none;
+}
+
+.white-icon {
+    display: block;
+}
+
+
 }
