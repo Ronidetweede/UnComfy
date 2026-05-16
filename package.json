@@ -1,0 +1,29 @@
+{
+  "name": "uncomfy",
+  "version": "1.0.0",
+  "description": "App for breaking comfort zones",
+  "homepage": "https://github.com/Ronidetweede/UnComfy#readme",
+  "bugs": {
+    "url": "https://github.com/Ronidetweede/UnComfy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ronidetweede/UnComfy.git"
+  },
+  "license": "ISC",
+  "author": "Roni_Berisha,Tasnim_El_Ouamari,Sofiya_Kosimova",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.8.0",
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  }
+}

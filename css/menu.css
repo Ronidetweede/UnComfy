@@ -1,4 +1,4 @@
-.mobile-header {
+.menu-page .mobile-header {
   font-size: var(--fs-heading-mobile);
   font-family: var(--font-signature);
   font-weight: 600;
@@ -6,11 +6,11 @@
   padding: 2rem;
 }
 
-.desktop-header {
+.menu-page .desktop-header {
   display: none;
 }
 
-main {
+.menu-page main {
   gap: 2rem;
 }
 

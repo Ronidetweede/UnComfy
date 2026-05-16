@@ -1,0 +1,112 @@
+<body class="account-setup">
+    <img src="./assets/Logo/Logo.png" class="logoDesktop">
+    <header>
+      <a href="./profile-page.html" class="arrow"><</a>
+      <h2 class="text-edit-profile">Bewerk Profiel</h2>
+    </header>
+    <main>
+      <section class="profile-picture">
+        <div class="profile-circle">
+          <img
+            src="./assets/placeholders/helena.png"
+            alt="profile-picture"
+            class="profile"
+          />
+          <button>
+            <img src="./assets/icons/camera-button.png" alt="camera-button" />
+          </button>
+        </div>
+
+        <h2>Helena Hills</h2>
+        <p>Tik op de camera om de foto te wijzigen</p>
+      </section>
+
+      <section class="personal-info">
+        <h2>Persoonlijke gegevens</h2>
+
+        <form>
+          <div class="input-container">
+            <label for="name">
+              <img src="./assets/icons/green-profile.png" alt="green-person" />
+              <p>Naam</p>
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Helena Hills"
+              required
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="username">
+              <img src="./assets/icons/green-at.png" alt="green-at" />
+              <p>Gebruikersnaam</p>
+            </label>
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="helenahills"
+              required
+            />
+          </div>
+
+          <div class="input-container">
+            <label for="email">
+              <img src="./assets/icons/green-email.png" alt="green-email" />
+              <p>Email</p>
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="helena.hills@mail.com"
+              required
+            />
+          </div>
+        </form>
+      </section>
+
+      <section class="account-settings">
+        <h2>Account Instellingen</h2>
+
+        <form>
+          <div class="input-container">
+            <label for="password">Wachtwoord</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="******"
+            />
+          </div>
+          <div class="input-container">
+            <label for="confirm-password">Bevestig Wachtwoord</label>
+            <input
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              placeholder="******"
+            />
+          </div>
+          <div class="input-container">
+            <label for="notifications">Meldingen</label>
+            <select name="notifications" id="notifications">
+              <option value="">-- Select --</option>
+              <option value="enabled">Aan</option>
+              <option value="disabled">Uit</option>
+            </select>
+          </div>
+        </form>
+      </section>
+
+      <button class="save-button">
+        <img
+          src="./assets/icons/save-changes-icon.png"
+          alt="save-changes-icon"
+        />
+        <p>Wijzigingen opslaan</p>
+      </button>
+    </main>

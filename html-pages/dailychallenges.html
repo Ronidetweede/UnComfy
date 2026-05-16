@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl-BE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Un(comfy) - Uitdagingen</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/desktop-layout.css">
+    <link rel="stylesheet" href="./css/dailychallenges.css" />
+        
+    <script type="module" src="./js/dailychallenges.js"></script>
+  </head>
+  <body class="daily-challenges">
+    <img src="./assets/Logo/Logo.png" class="logoDesktop">
+    <header>
+        <h3>«</h3>
+        <h2>Daily Challenges</h2>
+    </header>
+    <main>
+        <!--Voeg inputfield in en filter pillen-->
+        
+        <section class="filterChallenges">
+            <form action="" method="post">
+                <input type="text" name="sort" class="search-Challenge" placeholder="Zoek Challenges...">
+            </form>
+        </section>
+        <section class="info-available-challenges">
+            <div class="available-challenges">
+                <h2>Beschikbaar</h2>
+                <p>40</p>
+            </div>
+            <div class="completed-challenges">
+                <h2>Gedaan</h2>
+                <p>4</p>
+            </div>
+        </section>
+
+        <section class="filter-Pills-Section">
+            <div class="filter-Pills">
+                        <h3>Alle Challenges</h3>
+                        <h3>Sociaal</h3>
+                        <h3>Fysiek</h3>
+                        <h3>Publiek</h3>
+                        <h3>Mentaal</h3>
+                </div>
+        </section>
+
+        <section class="dailyCards">
+
+            <div class="challengeCard">
+                <div class="image-challenge">
+                    <div class="difficulity-pill">
+                        <h3>Medium</h3>
+                        <h3>Outside</h3>
+                </div></div>
+                <div class="info-Card">
+                    <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
+                    <div class="extra-InfoCard">
+                        <p class="location-name"><img src="assets/icons/green-location.png" alt="Huis-icoon"> Stadhuis Antwerpen</p>
+                        <p class="people-joined"><img src="assets/icons/green-people.png" alt="Huis-icoon"> 40  gejoined</p>
+                    </div>
+                    <a href="/detailpage.html"><button class="card-button">Meer Info</button></a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="menu-icons">
+            <a href="menu.html"><img src="assets/icons/home.png" alt="Huis-icoon"><p>Thuis</p></a>
+            <a href="dailychallenges.html"><img src="assets/icons/discover.png" alt="Ontdek-icoon" class="black-icon"><img src="assets/icons/white-discover.png" alt="WitOntdek-icoon" class="white-icon"><p>Verken</p></a>
+            <a href="rewards.html"><img src="assets/icons/rewards.png" alt="Beloning-icoon"><p>Rewards</p></a>
+            <a href="profile-page.html"><img src="assets/icons/person.png" alt="Persoon-icoon"><p>Profiel</p></a>
+        </div>
+    </footer>
+  </body>
+</html>

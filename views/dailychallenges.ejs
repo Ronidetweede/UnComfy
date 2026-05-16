@@ -1,0 +1,57 @@
+<%- include("partials/header") %>
+
+<body class="daily-challenges">
+    <img src="../assets/Logo/Logo.png" class="logoDesktop">
+    <header>
+        <h3>«</h3>
+        <h2>Daily Challenges</h2>
+    </header>
+    <main>
+        <!--Voeg inputfield in en filter pillen-->
+        
+        <section class="filterChallenges">
+            <form action="" method="post">
+                <input type="text" name="sort" class="search-Challenge" placeholder="Zoek Challenges...">
+            </form>
+        </section>
+        <section class="info-available-challenges">
+            <div class="available-challenges">
+                <h2>Beschikbaar</h2>
+                <p>40</p>
+            </div>
+            <div class="completed-challenges">
+                <h2>Gedaan</h2>
+                <p>4</p>
+            </div>
+        </section>
+
+        <section class="filter-Pills-Section">
+            <div class="filter-Pills">
+                        <h3>Alle Challenges</h3>
+                        <h3>Sociaal</h3>
+                        <h3>Fysiek</h3>
+                        <h3>Publiek</h3>
+                        <h3>Mentaal</h3>
+                </div>
+        </section>
+
+        <section class="dailyCards">
+
+            <div class="challengeCard">
+                <div class="image-challenge">
+                    <div class="difficulity-pill">
+                        <h3>Medium</h3>
+                        <h3>Outside</h3>
+                </div></div>
+                <div class="info-Card">
+                    <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
+                    <div class="extra-InfoCard">
+                        <p class="location-name"><img src="assets/icons/green-location.png" alt="Huis-icoon"> Stadhuis Antwerpen</p>
+                        <p class="people-joined"><img src="assets/icons/green-people.png" alt="Huis-icoon"> 40  gejoined</p>
+                    </div>
+                    <a href="/detailpage.html"><button class="card-button">Meer Info</button></a>
+                </div>
+            </div>
+        </section>
+    </main>
+<%- include("partials/footer") %>

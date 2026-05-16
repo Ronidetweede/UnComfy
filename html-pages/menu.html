@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="nl-BE">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Un(comfy) - Menu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/general.css" />
+    <link rel="stylesheet" href="./css/desktop-layout.css">
+    <link rel="stylesheet" href="./css/menu.css" />
+  </head>
+  <body>
+    <header class="mobile-header">
+      <h1>un<br />(comfy)</h1>
+    </header>
+
+    <img src="./assets/Logo/Logo.png" class="logoDesktop">
+    <header class="desktop-header">
+        <h2>Welkom terug!</h2>
+        <p>Tijd om uit je comfortzone te stappen</p>
+    </header>
+
+    <main>
+      <a href="current-challenge.html" class="todays-challenge-link">
+      <section class="todays-challenge-section">
+        <h2>Huidige Uitdaging</h2>
+        <div class="todays-challenge">
+          <p>GA IN JE EENTJE UIT ETEN</p>
+        </div>
+      </section>
+      </a>
+      <section class="streak-container">
+        <div class="streak-header">
+          <div>
+            <h2>Wekelijkse reeks</h2>
+            <p>5 van de 7 dagen voltooid</p>
+          </div>
+
+          <div class="streak-icon">
+            <img src="./assets/icons/streak-icon.png" alt="streak-icon" />
+          </div>
+        </div>
+
+        <div class="days">
+          <div class="day completed">M</div>
+          <div class="day completed">D</div>
+          <div class="day completed">W</div>
+          <div class="day completed">D</div>
+          <div class="day completed">V</div>
+          <div class="day active">Z</div>
+          <div class="day disabled">Z</div>
+        </div>
+
+        <div class="bonus">
+          <span>Voltooi de week voor een bonus</span>
+          <span>+100 CP</span>
+        </div>
+      </section>
+      <a href="leaderbord.html">
+      <section class="leaderboard">
+        <h2>Leaderbord</h2>
+        <ul class="profile-images">
+          <li><img src="./assets/placeholders/helena.png" alt="helena-profile-picture" width="200px" class="profile-1"></li>
+          <li><img src="./assets/placeholders/emma.png" alt="profile1-picture" width="60px" class="profile-2"></li>
+          <li><img src="./assets/placeholders/alex.png" alt="profile2-picture" width="60px" class="profile-3"></li>
+        </ul>
+      </section>
+      </a>
+      <section class="explore-challenges">
+        <button><a href="dailychallenges.html">Ontdek meer uitdagingen</a></button>
+      </section>
+    </main>
+    <footer>
+        <div class="menu-icons">
+            <a href="menu.html"><img src="assets/icons/home.png" alt="Huis-icoon" class="black-icon" > <img src="assets/icons/white-home.png" alt="withome" class="white-icon"><p>Thuis</p></a>
+            <a href="dailychallenges.html"><img src="assets/icons/discover.png" alt="Ontdek-icoon"><p>Verken</p></a>
+            <a href="rewards.html"><img src="assets/icons/rewards.png" alt="Beloning-icoon"><p>Rewards</p></a>
+            <a href="profile-page.html"><img src="assets/icons/person.png" alt="Persoon-icoon"><p>Profiel</p></a>
+        </div>
+    </footer>
+  </body>
+</html>
