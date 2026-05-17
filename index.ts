@@ -2,6 +2,7 @@ import express, { Express } from "express";
 import path from "node:path";
 import { getChallengeById, getChallenges } from "./data";
 import { Challenge } from "./types";
+import challengeRouter from "./routers/dailychallenges";
 
 const app : Express = express();
 
@@ -35,44 +36,7 @@ app.get("/currentchallenge",( req,res) =>{
     res.render("current-challenge");
 });
 
-app.get("/dailychallenges",async ( req,res) =>{
-    
-    const q: string = typeof req.query.q === "string" ? req.query.q : "";
-    const sortField : string = typeof req.query.sortField === "string" ? req.query.sortField : "title";
-    const sortDirection: string = typeof req.query.sortDirection === "string" ? req.query.sortDirection : "asc";
-
-    //Dit kan fout zijn, bekijk naamgeving. Zien of het echt sorteert
-    if (sortField !== "title" && sortField !== "social" && sortField !== "physically" && sortField !== "public" && sortField !== "mental") {
-        return res.status(400).send("Invalide Sorteer Veld")
-    }
-    if (sortDirection !== "asc" && sortDirection !== "desc") {
-        return res.status(400).send("Invalid sorteer richting")
-    }
-    
-    let challenges : Challenge[] = await getChallenges(q, sortField, sortDirection);
-
-    res.render("dailychallenges", {
-        error : "",
-        challenges : challenges,
-        q : q,
-        sortField : sortField,
-        sortDirection : sortDirection
-        // USER?
-    });
-});
-
-app.get("/dailychallenges/:id", async(req,res) => {
-    let id : number = parseInt(req.params.id);
-    let challenge : Challenge | undefined = await getChallengeById(id);
-
-    if (!challenge) {
-        res.status(404);
-        return res.render("404");
-    }
-
-    res.render("detailpage", {challenge : challenge});
-});
-
+app.use("/dailychallenges", challengeRouter());
 
 app.get("/generator2",( req,res) =>{
 

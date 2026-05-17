@@ -75,13 +75,11 @@ main{
     padding: 16px 16px 0px 16px ;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
 
-
     border-radius: 14px;
     background-color: var(--text-white);
 }
 
 .info-available-challenges > div > h2{
-    
     font-size: var(--fs-body-mobile);
 }
 
@@ -90,7 +88,6 @@ main{
     font-size: var(--fs-heading-mobile);
 }
 
-
 .filter-Pills{
     justify-content: center;
     /* Flex-Box */
@@ -98,19 +95,22 @@ main{
     flex-wrap: wrap;
     flex-direction: row;
     gap: 8px;
-
 }
 
-.filter-Pills > h3{
-    
+.filter-Pills > a > h3{
+    cursor: pointer;
     padding: 10px;  
     border-radius: 100px;
     background-color: white;
     box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.1);    
-
 }
 
-.filter-Pills > h3:nth-child(1){
+/* .filter-Pills > a > h3:nth-child(1){
+    background-color: var(--backgroundcolor-green);
+    color: var(--text-white);
+} */
+
+.filter-Pills > h3.active{
     background-color: var(--backgroundcolor-green);
     color: var(--text-white);
 }

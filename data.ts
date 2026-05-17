@@ -203,7 +203,7 @@ export const challenges : Challenge[] = [
   }
 ]
 
-export async function getChallenges(q : string , sortField : SortField, sortDirection : SortDirection) : Promise<Challenge[]> {
+export async function getChallenges(q : string , sortField : SortField, sortDirection : SortDirection, category: string) : Promise<Challenge[]> {
     
     return new Promise((res) => {
         let filteredChallenges : Challenge[] = challenges;
@@ -214,8 +214,8 @@ export async function getChallenges(q : string , sortField : SortField, sortDire
             })
         }
 
-        if (sortField) {
-            switch (sortField) {
+        if (category) {
+            switch (category) {
                 case "title":
                     break;
                     case "social":
