@@ -28,7 +28,7 @@ header > h2{
     padding-bottom: 20px;
 
     /* Gooi er een overlay bij Swa */
-    background-image: url("/assets/ChallengeImages/Antwerpen.png");
+    background-image: url("/assets/challenges/Antwerpen.png");
     background-size: cover;
     background-repeat: no-repeat;
 

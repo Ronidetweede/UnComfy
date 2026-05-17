@@ -38,22 +38,24 @@
         </section>
 
         <section class="dailyCards">
-
+        
+            <% for (let challenge of challenges) { %>
             <div class="challengeCard">
                 <div class="image-challenge">
                     <div class="difficulity-pill">
-                        <h3>Medium</h3>
-                        <h3>Outside</h3>
+                        <h3><%= challenge.difficulty %></h3>
+                        <h3><%= challenge.category %></h3>
                 </div></div>
                 <div class="info-Card">
-                    <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
+                    <h2 class="title-challenge" title="<%= challenge.title %>"><%= challenge.title %></h2>
                     <div class="extra-InfoCard">
-                        <p class="location-name"><img src="assets/icons/green-location.png" alt="Huis-icoon"> Stadhuis Antwerpen</p>
-                        <p class="people-joined"><img src="assets/icons/green-people.png" alt="Huis-icoon"> 40  gejoined</p>
+                        <p class="location-name"><img src="assets/icons/green-location.png" alt="Huis-icoon"> <%= challenge.location %></p>
+                        <p class="people-joined"><img src="assets/icons/green-people.png" alt="Huis-icoon"> <%= challenge.joined_count %> gejoined</p>
                     </div>
-                    <a href="/detailpage"><button class="card-button">Meer Info</button></a>
+                    <a href="/dailychallenges/<%= challenge.id %>"><button class="card-button">Meer Info</button></a>
                 </div>
             </div>
+        <% } %>
         </section>
     </main>
 <%- include("partials/footer") %>

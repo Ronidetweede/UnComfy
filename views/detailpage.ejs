@@ -3,29 +3,28 @@
 </head>
 
 <body>
-    <img src="./assets/Logo/Logo.png" class="logoDesktop">
+    <img src="/assets/Logo/Logo.png" class="logoDesktop">
     <header>
         <h2>Uitdaging Details</h2>
     </header>
     <main>
       <section class="image-Challenge">
         <div class="location-challenge">
-            <img src="./assets/icons/green-location.png">
+            <img src="/assets/icons/green-location.png">
             <p>Locatie</p>
-            <h6 class="location">Stadhuis</h6>
+            <h6 class="location"><%= challenge.location %></h6>
         </div>
         <div class="peopleChallenge">
-            <img src="./assets/icons/green-people.png">
+            <img src="/assets/icons/green-people.png">
             <p>Joined</p>
             <h6 class="people-joined">42 Anderen</h6>
         </div>
       </section>
 
     <section class="info-Challenge">
-        <h1 class="title-Challenge">Ga naar stadhuis en ontmoet 10 mensen</h1>
+        <h1 class="title-Challenge"><%= challenge.title %></h1>
         <h3>Over deze challenge</h3>
-        <p class="description-Challenge">Stap uit je comfortzone en oefen je sociale vaardigheden in het prachtige Stadhuis van Antwerpen. Deze uitdaging moedigt je aan om 10 vreemden vriendelijk te begroeten, waardoor je zelfvertrouwen opbouwt en positiviteit verspreidt.</p>
-        <p class="description-Challenge">Of het nu een simpel "hallo" is of een warme glimlach met een begroeting in de lokale taal, elke interactie is een kleine stap in de richting van gemeenschapsvorming en het overwinnen van sociale angst.</p>
+        <p class="description-Challenge"><%= challenge.description %></p>
     </section>
   <section class="challenge-Cards">
       <div class="expectation-Card">
@@ -61,4 +60,5 @@
       <a href="/currentchallenge"><button class="card-button">Accepteer Challenge</button> </a>
 </section>
 
-    </main>
+</main>
+<%- include("partials/footer") %>

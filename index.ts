@@ -1,6 +1,6 @@
 import express, { Express } from "express";
 import path from "node:path";
-import { getChallenges } from "./data";
+import { getChallengeById, getChallenges } from "./data";
 import { Challenge } from "./types";
 
 const app : Express = express();
@@ -53,7 +53,7 @@ app.get("/dailychallenges",async ( req,res) =>{
 
     res.render("dailychallenges", {
         error : "",
-        challgenges : challenges,
+        challenges : challenges,
         q : q,
         sortField : sortField,
         sortDirection : sortDirection
@@ -61,14 +61,31 @@ app.get("/dailychallenges",async ( req,res) =>{
     });
 });
 
-app.get("/detailpage",( req,res) =>{
+app.get("/dailychallenges/:id", async(req,res) => {
+    let id : number = parseInt(req.params.id);
+    let challenge : Challenge | undefined = await getChallengeById(id);
 
-    res.render("detailpage");
+    if (!challenge) {
+        res.status(404);
+        return res.render("404");
+    }
+
+    res.render("detailpage", {challenge : challenge});
 });
+
 
 app.get("/generator2",( req,res) =>{
+
+
     res.render("generator-part2");
 });
+
+app.post("/generator2",( req,res) =>{
+
+    // Logica voor de antwoorden op te slagen.
+
+});
+
 
 app.get("/generator",( req,res) =>{
     res.render("generator");

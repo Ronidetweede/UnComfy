@@ -243,3 +243,11 @@ export async function getChallenges(q : string , sortField : SortField, sortDire
 
         res(filteredChallenges);
 })}
+
+export async function getChallengeById(id:number): Promise<Challenge | undefined> {
+  return new Promise((res) => {
+    let challenge = challenges.find(challenge => challenge.id === id);
+
+    res(challenge);
+  })
+}

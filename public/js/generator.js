@@ -61,7 +61,8 @@ let CardContainers = document.querySelectorAll(".option-Card");
 let radioCards = document.querySelectorAll(".option-Card div");
 let textCards = document.querySelectorAll(".option-Card p")
 
-let nextButton = document.querySelector(".generator-Button");
+const nextButton = document.querySelector(".generator-Button");
+const backButton = document.querySelector(".backButton");
 
 let questionCards = document.querySelector(".questions-Container");
 
@@ -71,10 +72,10 @@ textCards[1].textContent = assessments[counter].medium;
 textCards[2].textContent = assessments[counter].hard;
 
 CardContainers.forEach(card =>{
+  
+  card.addEventListener('click', () => {
+      let radioCard = card.querySelector("div"); 
 
-    card.addEventListener('click', () => {
-
-        let radioCard = card.querySelector("div"); 
 
         CardContainers.forEach(card => {card.classList.remove("active")});
         radioCards.forEach(radio => {radio.classList.remove("active")})
@@ -84,10 +85,9 @@ CardContainers.forEach(card =>{
         radioCard.classList.add("active");
 
         nextButton.classList.add("active")
-
     })
+});
 
-})    
 nextButton.addEventListener("click", (e) => {
 
     if (nextButton.classList.contains("active") && counter < 5) {
@@ -101,16 +101,29 @@ nextButton.addEventListener("click", (e) => {
         textCards[1].textContent = assessments[counter].medium;
         textCards[2].textContent = assessments[counter].hard;
 
-        CardContainers.forEach(card => { 
-            card.classList.remove("active")})
-        radioCards.forEach(radio => {radio.classList.remove("active")})
+        CardContainers.forEach(card => {card.classList.remove("active")})
+        radioCards.forEach(radio => {radio.classList.remove("active")});
 
         nextButton.classList.remove("active");
     }else if(nextButton.classList.contains("active")  && counter === 5){
-        window.location.href = "menu.html";
-
+        window.location.href = "/menu";
     }
-    
- 
 })
+
+backButton.addEventListener("click",(e) => {
+  if (counter > 0) {
+    counter--;
+    questionNumber.textContent = `Vraag ${counter + 1} van 6`;
+    percentageNumber.textContent = `${Math.round((counter + 1) * 16.66666667)}%`;
+    title.textContent = assessments[counter].titel;
+    desc.textContent = assessments[counter].desc;
+    textCards[0].textContent = assessments[counter].beginner;
+    textCards[1].textContent = assessments[counter].medium;
+    textCards[2].textContent = assessments[counter].hard;
+
+    CardContainers.forEach(card => {card.classList.remove("active")});
+    radioCards.forEach(radio => {radio.classList.remove("active")});
+    
+    nextButton.classList.remove("active");
+}})
 
