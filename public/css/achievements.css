@@ -1,0 +1,111 @@
+
+header {
+    background-color: var(--backgroundcolor-green);
+    width: 100%;
+    height: 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header a {
+    position: absolute;
+    left: 12px;
+}
+
+header h2 {
+    font-weight: 500;
+}
+
+.achievements {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 90%;
+    margin: 20px 0 50px 0;
+}
+
+.achievement {
+    position: relative;
+    border-radius: 13px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0) 60%);
+}
+
+.description {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 10px;
+}
+
+.description img {
+    width: 15px;
+}
+
+.points {
+    color: #FDC700;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.completed {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 22px;
+}
+.white-icon {
+    display: none;
+}
+
+
+@media screen and (min-width: 768px) {
+    .achievements {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .achievements {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+        .black-icon{
+    display: none;
+    }
+
+    .white-icon {
+    display: block;
+    }
+
+footer > .menu-icons > a:nth-child(4){
+        background-color: var(--backgroundcolor-green);
+        color: white;
+    }
+
+
+header{
+
+    height: 100px;
+}
+header h2{
+   font-size: var(--fs-heading-desktop);
+    font-weight: bold;
+}
+}

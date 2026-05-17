@@ -1,4 +1,4 @@
-.menu-page .mobile-header {
+.mobile-header {
   font-size: var(--fs-heading-mobile);
   font-family: var(--font-signature);
   font-weight: 600;
@@ -6,11 +6,11 @@
   padding: 2rem;
 }
 
-.menu-page .desktop-header {
+.desktop-header {
   display: none;
 }
 
-.menu-page main {
+main {
   gap: 2rem;
 }
 
@@ -282,7 +282,4 @@ display: none;
 .white-icon {
 display: block;
 }
-
-
-
 }
