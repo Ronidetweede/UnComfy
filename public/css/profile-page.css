@@ -55,10 +55,26 @@
     z-index: 50;
 }
 
-.menu a {
+.menu a  {
     text-decoration: none;
     border-radius: 5px;
     padding: 15px;
+}
+
+.menu form > button{
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 15px;  
+}
+
+.menu form:hover {
+    background: var(--backgroundcolor-header-green);
+    cursor: pointer;
+}
+
+.menu form button:hover{
+    background: var(--backgroundcolor-header-green);
+    cursor: pointer;
 }
 
 .menu a:hover {

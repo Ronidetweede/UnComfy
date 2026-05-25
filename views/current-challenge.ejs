@@ -16,15 +16,15 @@
         <section class="active-challenges">
             <h2 class="title-page">Actieve uitdaging</h2>
 
-            <a href="/detailpage">
+            <a href="/detailpage/<%= challenge.id %>">
             <div class="challengeCard">
                 <div class="image-challenge">
                     <div class="difficulity-pill">
-                        <h3>Medium</h3>
-                        <h3>Outside</h3>
+                        <h3><%= challenge.difficulty %></h3>
+                        <h3><%= challenge.category %></h3>
                 </div></div>
                 <div class="info-Card">
-                    <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
+                    <h2 class="title-challenge"><%= challenge.title %></h2>
                     <div class="extra-InfoCard">
                    </div>
             

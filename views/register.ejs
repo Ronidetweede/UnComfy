@@ -14,25 +14,25 @@
 
         <div class="form-div">
           <section>
-            <h2>Log in</h2>
-            <p>Vul je gebruikersnaam in om je aan te melden voor deze app</p>
+            <h2>Maak een account aan</h2>
+            <p>Vul je e-mailadres in om je aan te melden voor deze app</p>
           </section>
           <% if (error) { %>
             <p class="login-error">
               <%= error %>
             </p>
             <% } %>
-
-              <form method="post" action="/login">
+              <form method="POST" action="/register">
                 <input type="text" name="username" id="username" placeholder="jeffbezos" required class="input-field" />
                 <input type="password" name="password" id="password" placeholder="Vul je wachtwoord in" required
                   class="input-field" />
+
                 <button type="submit" class="continue-button">Doorgaan</button>
               </form>
 
               <p>or</p>
               <p class="login-switch">
-                Heb je geen account? <a href="/register">Registeer hier</a>
+                Al een account? <a href="/login">Log in hier</a>
               </p>
               <section class="terms">
                 <p>

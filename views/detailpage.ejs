@@ -17,7 +17,7 @@
         <div class="peopleChallenge">
             <img src="/assets/icons/green-people.png">
             <p>Joined</p>
-            <h6 class="people-joined">42 Anderen</h6>
+            <h6 class="people-joined"><%= challenge.joined_count %> Anderen</h6>
         </div>
       </section>
 
@@ -57,7 +57,13 @@
         </ul>
       </div>
 
+    <% if (userChallenge && userChallenge.challengeId === challenge.id) { %>
+      <a href="/submitchallenge/:<%= userChallenge.challengeId %>"><button class="card-button">Indienen Challenge</button> </a>
+    <% } else { %>
+      <form action="/dailychallenges/<%= challenge.id %>/accept" method="post">
       <a href="/currentchallenge"><button class="card-button">Accepteer Challenge</button> </a>
+      </form>
+    <% } %>
 </section>
 
 </main>

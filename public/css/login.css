@@ -21,6 +21,11 @@ header h1 {
 
 /* Main */
 
+.form-div > .login-error{
+  color: red;
+}
+
+
 .form-div {
   margin: 0 1rem;
 

@@ -1,106 +1,79 @@
 <%- include("partials/header") %>
-<link rel="stylesheet" href="/css/profile-page.css">
-</head>
+    <link rel="stylesheet" href="/css/profile-page.css">
+    </head>
 
-<body>
-    <img src="./assets/Logo/Logo.png" class="logoDesktop">
-    <header>
-        <div class="header">
-            <div class="profile">
-                <div class="personal">
-                    <img class="profile-picture" src="assets/placeholders/helena.png" alt="Profielfoto">
-                    <h2>Helena Hills</h2> 
-                </div>
-                <div class="dropdown">
-                    <button id="menu-toggle">
-                        <img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon">
-                    </button>
-                    <div id="menu" class="menu hidden">
-                        <a href="/profilepage">Profiel</a>
-                        <!-- <a href="avatar.html">Avatar</a> -->
-                        <a href="/colortheme">Thema</a>
-                        <a href="/subscription">Neem Premium</a>
-                        <a href="/tutorial">Tutorial</a>
-                        <a href="/termsofservice">Gebruiksvoorwaarden</a>
-                        <a href="/privacypolicy">Privacyverklaring</a>
-                        <a href="/settings">Instellingen</a>
-                        <a href="/login">Uitloggen</a>
+    <body>
+        <img src="./assets/Logo/Logo.png" class="logoDesktop">
+        <header>
+            <div class="header">
+                <div class="profile">
+                    <div class="personal">
+                        <img class="profile-picture" src="assets/placeholders/helena.png" alt="Profielfoto">
+                        <h2><%= username %></h2>
                     </div>
+                    <div class="dropdown">
+                        <button id="menu-toggle">
+                            <img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon">
+                        </button>
+                        <div id="menu" class="menu hidden">
+                            <a href="/profilepage">Profiel</a>
+                            <!-- <a href="avatar.html">Avatar</a> -->
+                            <a href="/colortheme">Thema</a>
+                            <a href="/subscription">Neem Premium</a>
+                            <a href="/tutorial">Tutorial</a>
+                            <a href="/termsofservice">Gebruiksvoorwaarden</a>
+                            <a href="/privacypolicy">Privacyverklaring</a>
+                            <a href="/settings">Instellingen</a>
+
+                            <form action="/logout" method="POST">
+                                <button type="submit">Uitloggen</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
                 </div>
-                <!-- Dit zijn placeholders! Inladen met javascript/typescript -->  
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main>
-        <div class="points-card">
-            <p>Jouw ComfyPunten</p>
-            <h1>1,230</h1>
-            <!-- Dit zijn placeholders! Inladen met javascript/typescript -->  
-        </div>
-
-        <div class="tabs">
-            <button id="timeline-button" class="timeline-button active">
-                <img id="timeline-icon" src="assets/icons/icon-timeline.png" alt="Klok-icoon">
-                <p>Tijdlijn</p>
-            </button>
-            <button id="gallery-button" class="gallery-button">
-                <img id="gallery-icon" src="assets/icons/icon-gallery-gray.png" alt="Galerij-icoon">
-                <p>Galerij</p>
-            </button>
-        </div>
-
-        <div class="section-header">
-            <h3>Recente Prestaties</h3>
-            <a href="/achievements">Bekijk Alle</a>
-        </div>
-
-        <div id="achievements" class="achievements">
-            <div class="achievement"><a href="">
-                <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
-                <div class="overlay"></div>
-                <div class="description">
-                    <p>Ga alleen uit eten</p>
-                    <div class="points">
-                        <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
-                        <span>100</span>
-                    </div>
-                </div>
-                <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
-                <!-- Dit zijn placeholders! Inladen met javascript/typescript -->  
-            </a>
+        <main>
+            <div class="points-card">
+                <p>Jouw ComfyPunten</p>
+                <h1><%= points %></h1>
+                <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
             </div>
 
-            <div class="achievement"><a href="">
-                <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
-                <div class="overlay"></div>
-                <div class="description">
-                    <p>Ga alleen uit eten</p>
-                    <div class="points">
-                        <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
-                        <span>100</span>
-                    </div>
-                </div>
-                <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
-                <!-- Dit zijn placeholders! Inladen met javascript/typescript -->  
-            </a>
+            <div class="tabs">
+                <button id="timeline-button" class="timeline-button active">
+                    <img id="timeline-icon" src="assets/icons/icon-timeline.png" alt="Klok-icoon">
+                    <p>Tijdlijn</p>
+                </button>
+                <button id="gallery-button" class="gallery-button">
+                    <img id="gallery-icon" src="assets/icons/icon-gallery-gray.png" alt="Galerij-icoon">
+                    <p>Galerij</p>
+                </button>
             </div>
 
-            <div class="achievement"><a href="">
-                <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
-                <div class="overlay"></div>
-                <div class="description">
-                    <p>Ga alleen uit eten</p>
-                    <div class="points">
-                        <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
-                        <span>100</span>
-                    </div>
-                </div>
-                <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
-                <!-- Dit zijn placeholders! Inladen met javascript/typescript -->  
-            </a>
+            <div class="section-header">
+                <h3>Recente Prestaties</h3>
+                <a href="/achievements">Bekijk Alle</a>
             </div>
-        </div>
-    </main>
-<script src="/js/profile-page.js"></script>
-<%- include("partials/footer") %>
+
+            <div id="achievements" class="achievements">
+                <div class="achievement"><a href="">
+                        <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
+                        <div class="overlay"></div>
+                        <div class="description">
+                            <p>Ga alleen uit eten</p>
+                            <div class="points">
+                                <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
+                                <span>100</span>
+                            </div>
+                        </div>
+                        <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
+                        <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
+                    </a>
+                </div>
+
+        </main>
+        <script src="/js/profile-page.js"></script>
+        <%- include("partials/footer") %>

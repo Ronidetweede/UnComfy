@@ -13,13 +13,23 @@
     </header>
 
     <main>
+      <% if (challenge) { %>
       <a href="/currentchallenge" class="todays-challenge-link">
       <section class="todays-challenge-section">
         <h2>Huidige Uitdaging</h2>
         <div class="todays-challenge">
-          <p>GA IN JE EENTJE UIT ETEN</p>
+          <p><%= challenge.title %></p>
         </div>
       </section>
+      <% }else { %>
+      <a href="/dailychallenges" class="todays-challenge-link">
+      <section class="todays-challenge-section">
+        <h2>Huidige Uitdaging</h2>
+        <div class="todays-challenge">
+          <p>Zoek Challenges</p>
+        </div>
+      </section>
+      <% } %>
       </a>
       <section class="streak-container">
         <div class="streak-header">
