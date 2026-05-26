@@ -69,21 +69,25 @@ export async function getChallengeById(id: number, ): Promise<Challenge | undefi
 };
 
 export async function getActiveChallengeById(userId: string) {
+
   const activeUserChallenge = await userChallengesCollection.findOne({userId: userId, status: "ACTIVE"});
-
   const activeChallenge = await getChallengeById(activeUserChallenge?.challengeId!); 
-
-  
 
   return {activeChallenge, activeUserChallenge};
 }
 
+export async function getCompletedChallenges(userId: string) {
 
+  const completedUserChallenge = await userChallengesCollection.find({userId: userId, status: "COMPLETED"}).toArray();
 
-export async function getCompletedChallengesIds(username: string) {
-  const completed = await userChallengesCollection.find({username: username, status: "COMPLETED"}).toArray();
+  const resultChallenges = [];
 
-  return completed;
+  for (const completedChallenge of completedUserChallenge) {
+    const challenge : Challenge | undefined  = await getChallengeById(completedChallenge.challengeId);
+
+    resultChallenges.push(challenge);
+  }
+  return resultChallenges;
 }
 
 export async function acceptChallenge(userId: ObjectId, challengeId: number){

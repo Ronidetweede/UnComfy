@@ -40,10 +40,16 @@
             <% for (let challenge of challenges) { %>
             <div class="challengeCard">
                 <div class="image-challenge">
+                <div class="challenge-pills">
                     <div class="difficulity-pill">
                         <h3><%= challenge.difficulty %></h3>
                         <h3><%= challenge.category %></h3>
-                </div></div>
+                </div>
+                <div class="points-pill">
+                    <h3><%= challenge.comfyPoints %> CP</h3>
+                </div>
+                </div>
+            </div>
                 <div class="info-Card">
                     <h2 class="title-challenge" title="<%= challenge.title %>"><%= challenge.title %></h2>
                     <div class="extra-InfoCard">

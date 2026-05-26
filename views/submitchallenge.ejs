@@ -15,8 +15,8 @@
 
     <main>
        <div class="challengeCard">
-        <h2 class="title-challenge">Ga naar stadhuis en ontmoet 10 vreemdelingen</h2>
-        <p class="location-name"><img src="/assets/icons/small-white-location.png" alt=""> Stadhuis Antwerpen</p>
+        <h2 class="title-challenge"><%= challenge.title %></h2>
+        <p class="location-name"><img src="/assets/icons/small-white-location.png" alt=""> <%= challenge.location %></p>
        </div>
 
        <h2>Upload Foto's</h2>
@@ -38,6 +38,6 @@
        <input type="text" name="description" class="description-input" placeholder="Tell us about your experience...">
        </div>
 
-       <button type="submit" class="submit-challenge">Verzenden & verdien 150 CP</button>
+       <button type="submit" class="submit-challenge">Verzenden & verdien <%= challenge.comfyPoints %> CP</button>
     </main>
 <%- include("partials/footer") %>

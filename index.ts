@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express, { Express } from "express";
 import path from "node:path";
-import { getActiveChallengeById, getChallengeById, getChallenges } from "./data";
+import { getActiveChallengeById, getChallengeById, getChallenges, getCompletedChallenges } from "./data";
 import { Challenge } from "./types";
 import { loginRouter } from "./routers/loginRouter";
 import { registerRouter } from "./routers/registerRouter";
@@ -10,6 +10,7 @@ import session from "./session";
 import { secureMiddleware } from "./secureMiddleware";
 import { challengeRouter } from "./routers/challengeRouter";
 import { ObjectId } from "mongodb";
+import { copyFile } from "node:fs";
 
 dotenv.config();
 
@@ -83,14 +84,15 @@ app.get("/privacypolicy",secureMiddleware,( req,res) =>{
     res.render("privacy-policy");
 });
 
-app.get("/profilepage",secureMiddleware,( req,res) =>{
+app.get("/profilepage",secureMiddleware, async ( req,res) =>{
 
+    const completedChallenges = await getCompletedChallenges(new ObjectId(req.session.user?._id).toString());
 
     res.render("profile-page",
         {
             username : req.session.user?.displayName,
             points: req.session.user?.points,
-            compChallenges: req.session.user
+            challenges: completedChallenges
         });
 });
 

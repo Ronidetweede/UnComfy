@@ -9,6 +9,7 @@ export interface Challenge{
     joined_count : number;
     difficulty: string;
     category :string;
+    comfyPoints: number;
 }
 
 export interface User {

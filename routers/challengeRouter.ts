@@ -1,5 +1,5 @@
 import express from "express";
-import { getChallenges, getChallengeById, getCompletedChallengesIds, acceptChallenge, getActiveChallengeById } from "../data";
+import { getChallenges, getChallengeById, getCompletedChallenges, acceptChallenge, getActiveChallengeById } from "../data";
 import { Challenge } from "../types";
 import { ObjectId } from "mongodb";
 
@@ -22,10 +22,9 @@ export function challengeRouter() {
                 return res.status(400).send("Invalid sorteer richting")
             }
             
-            const username : string = req.session.user!.username;
 
             const challenges : Challenge[] = await getChallenges(q, sortField, sortDirection, category);
-            const completedChallenges = await getCompletedChallengesIds(username);
+            const completedChallenges = await getCompletedChallenges(new ObjectId(req.session.user?._id).toString());
 
             // Bekijk hoeveel challenges er beschikbaar zijn en hoeveel er al gedaan zijn? User logica? 
             
@@ -51,17 +50,28 @@ export function challengeRouter() {
     router.get("/detailpage/:id", async (req, res) => {
 
         const challenge = await getChallengeById(parseInt(req.params.id));
-        const activeChallenge = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
-        
+        const activeChallenges = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
+        const completedChallenges = await getCompletedChallenges(new ObjectId(req.session.user?._id).toString());
+
+        const completedChallenge = completedChallenges.find((item) => item?.id == challenge?.id);
+
         res.render("detailpage", {
             challenge: challenge,
-            userChallenge: activeChallenge.activeUserChallenge
+            userChallenge: activeChallenges.activeUserChallenge,
+            completedChallenge: completedChallenge
         });
     });
 
     router.get("/submitchallenge/:id", async (req, res) => {
 
-        res.render("submitchallenge");
+        const activeChallenge = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
+
+        res.render("submitchallenge",
+            {
+                challenge: activeChallenge.activeChallenge,
+                userChallenge: activeChallenge.activeUserChallenge
+            }
+        );
     });
     
     router.get("/currentchallenge", async (req, res) => {

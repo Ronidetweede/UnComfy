@@ -57,23 +57,23 @@
                 <h3>Recente Prestaties</h3>
                 <a href="/achievements">Bekijk Alle</a>
             </div>
-
+        <% for (let challenge of challenges) { %>
             <div id="achievements" class="achievements">
-                <div class="achievement"><a href="">
+                <div class="achievement"><a href="/detailpage/<%= challenge.id %>">
                         <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
                         <div class="overlay"></div>
                         <div class="description">
-                            <p>Ga alleen uit eten</p>
+                            <p><%= challenge.title %></p>
                             <div class="points">
                                 <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
-                                <span>100</span>
+                                <span><%= challenge.comfyPoints %></span>
                             </div>
                         </div>
                         <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
                         <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
                     </a>
                 </div>
-
+            <% } %>
         </main>
         <script src="/js/profile-page.js"></script>
         <%- include("partials/footer") %>

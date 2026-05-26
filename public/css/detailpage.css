@@ -191,6 +191,7 @@ main{
 
 .card-button{
     align-self: center;
+    cursor: pointer;
     width: 280px;
     height: 48px;
     text-align: center;
