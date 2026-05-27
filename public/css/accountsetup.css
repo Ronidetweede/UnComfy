@@ -181,6 +181,13 @@ header {
     height: 75px;
   }
 main {
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
     grid-area: main;
     padding-top: 2rem;
     background-color: #f8f8f8;

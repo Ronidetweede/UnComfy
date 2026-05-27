@@ -25,6 +25,9 @@ header>h2 {
 }
 
 main {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
     padding-top: 20px;
     background-color: #E8F5EA;
     gap: 20px;
@@ -94,6 +97,8 @@ main {
     flex-direction: row;
     gap: 8px;
 }
+
+
 
 .filter-Pills>a {
     cursor: pointer;
@@ -197,6 +202,7 @@ main {
 
 .filter-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
     padding: 8px 16px;
@@ -251,9 +257,11 @@ main {
 }
 
 .points-pill {
-    background-color: white;
+    background-color: var(--backgroundcolor-green);
     font-weight: bolder;
-    color: var(--backgroundcolor-green);
+    color: var(--text-white);
+    padding: 3px;
+    border-radius: 30px;
 }
 
 .image-challenge {

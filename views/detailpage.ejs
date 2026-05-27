@@ -4,7 +4,7 @@
     <h2>Uitdaging Details</h2>
 </header>
 <main>
-    <section class="image-Challenge">
+    <section class="image-Challenge" style="background-image: url('<%= challenge.img_location %>');">
         <div class="location-challenge">
             <img src="/assets/icons/green-location.png">
             <p>Locatie</p>
@@ -45,7 +45,7 @@
      
     <section class="tips-card">
       <div class="completion-Card">
-        <h3><img src="/assets/icons/white-award.png"> Voltooiings Criteria</h3>
+        <h3>Voltooiings Criteria</h3>
         <ul>
        <% for (const criterium of challenge.criteria) { %>
            <li><img src="/assets/icons/checklist.png"><%= criterium %></li>

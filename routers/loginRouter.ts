@@ -23,7 +23,7 @@ export function loginRouter() {
       const user: User = await Login(userName, userPassword);
       delete user?.password;
       req.session.user = user;
-      res.redirect("/menu");
+      res.redirect("/accountsetup");
     } catch (error: any) {
       res.render("login", { error: error.message });
     }
