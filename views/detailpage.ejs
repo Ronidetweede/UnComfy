@@ -1,14 +1,10 @@
-<%- include("partials/header") %>
-<link rel="stylesheet" href="/css/detailpage.css">
-</head>
-
-<body>
-    <img src="/assets/Logo/Logo.png" class="logoDesktop">
-    <header>
-        <h2>Uitdaging Details</h2>
-    </header>
-    <main>
-      <section class="image-Challenge">
+<%- include("partials/header", { css: 'detailpage.css' }) %>
+<img src="/assets/Logo/Logo.png" class="logoDesktop">
+<header>
+    <h2>Uitdaging Details</h2>
+</header>
+<main>
+    <section class="image-Challenge">
         <div class="location-challenge">
             <img src="/assets/icons/green-location.png">
             <p>Locatie</p>
@@ -67,6 +63,5 @@
       </form>
       <% } %>
 </section>
-
 </main>
 <%- include("partials/footer") %>

@@ -13,5 +13,10 @@
     />
     <link rel="stylesheet" href="/css/general.css">
     <link rel="stylesheet" href="/css/reset.css" />
+    <% if (locals.includeDesktopLayout !== false) { %>
     <link rel="stylesheet" href="/css/desktop-layout.css">
-      
+    <% } %>
+    <link rel="stylesheet" href="/css/<%= css %>">
+    <script src="./js/index.js"></script>
+  </head>
+<body>

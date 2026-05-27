@@ -77,7 +77,8 @@ export function challengeRouter() {
         res.render("submitchallenge",
             {
                 challenge: activeChallenge.activeChallenge,
-                userChallenge: activeChallenge.activeUserChallenge
+                userChallenge: activeChallenge.activeUserChallenge,
+                currentPath: '/submitchallenge'
             }
         );
     });
@@ -97,7 +98,7 @@ export function challengeRouter() {
         const activeChallenge = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
 
 
-        res.render("current-challenge", {challenge: activeChallenge.activeChallenge});
+        res.render("current-challenge", {challenge: activeChallenge.activeChallenge, currentPath: '/currentchallenge'});
     });
     
 
@@ -108,4 +109,4 @@ export function challengeRouter() {
     // })
 
   return router;
-};
+}

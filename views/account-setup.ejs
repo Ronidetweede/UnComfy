@@ -1,29 +1,24 @@
-<%- include("partials/header") %>
-
-<link rel="stylesheet" href="/css/accountsetup.css">
-</head>
-
-<body>
-    <img src="./assets/Logo/Logo.png" class="logoDesktop">
-    <header>
-      <a href="/profilepage" class="arrow"><</a>
-      <h2 class="text-edit-profile">Bewerk Profiel</h2>
-    </header>
-    <main>
+<%- include("partials/header", { css: 'accountsetup.css' }) %>
+<img src="./assets/Logo/Logo.png" class="logoDesktop">
+<header>
+  <a href="/profilepage" class="arrow"><</a>
+  <h2 class="text-edit-profile">Bewerk Profiel</h2>
+</header>
+<main>
       <form action="/accountsetup" method="post" enctype="multipart/form-data">
 
-        <section class="profile-picture">
-          <div class="profile-circle">
-            <img
+    <section class="profile-picture">
+      <div class="profile-circle">
+        <img
               id="profile-preview"
-              src="<%= profilePicture ? '/uploads/' + profilePicture : './assets/placeholders/Default_pfp.jpg' %>"
-              alt="profile-picture"
-              class="profile"
-            />
-            <button type="button" id="camera-btn">
-              <img src="./assets/icons/camera-button.png" alt="camera-button" />
-            </button>
-          </div>
+          src="<%= profilePicture ? '/uploads/' + profilePicture : './assets/placeholders/Default_pfp.jpg' %>"
+          alt="profile-picture"
+          class="profile"
+        />
+        <button type="button" id="camera-btn">
+          <img src="./assets/icons/camera-button.png" alt="camera-button" />
+        </button>
+      </div>
 
           <input type="file" id="photo-input" name="photo" accept="image/*" style="display:none">
 
