@@ -35,7 +35,7 @@
         
             <% for (let challenge of challenges) { %>
                 <% if(!completedChallenges.includes(challenge.id)) { %>
-            <div class="challengeCard">
+<article class="challengeCard" style="background-image: url('/assets/challenges/<%= challenge.location %>');">
                 <div class="image-challenge">
                 <div class="challenge-pills">
                     <div class="difficulity-pill">
@@ -55,7 +55,7 @@
                     </div>
                     <a href="/detailpage/<%= challenge.id %>"><button class="card-button">Meer Info</button></a>
                 </div>
-            </div>
+            </article>
             <% } %>
         <% } %>
         </section>

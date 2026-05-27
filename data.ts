@@ -149,6 +149,9 @@ export async function acceptChallenge(userId: ObjectId, challengeId: number) {
     status: "ACTIVE",
     acceptedAt: new Date(Date.now()),
   });
+
+  await challengeCollection.updateOne({id: challengeId}, {$inc: {joined_count: 1}});
+
 }
 
 export async function getUserById(userId: ObjectId | string) {

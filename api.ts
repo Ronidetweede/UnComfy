@@ -93,13 +93,20 @@ export async function seedDatabase() {
       const street = tags["addr:street"] || "";
       const houseNumber = tags["addr:housenumber"] || "";
 
-
-
       challenge.location = {
         name: tags.name,
         address: `${street} ${houseNumber}`,
         categoryLocation: challenge.category,
       };
+
+      const imageNum = Math.floor(Math.random() * 4) + 1;
+      if (tags.amenity === "cafe") {
+        challenge.img_location = `/assets/challenges/cafe-${imageNum}.jpg`;
+      } else if (tags.amenity === "restaurant") {
+        challenge.img_location = `/assets/challenges/restaurant-${imageNum}.jpg`;
+      } else {
+        challenge.img_location = `/assets/challenges/park-${imageNum}.jpg`;
+      }
     }
 
     await challengeCollection.deleteMany({});
