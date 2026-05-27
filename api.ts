@@ -24,7 +24,7 @@ async function fetchLocaties() {
     headers: {
     
     // Dit moet voor OpenStreetMap 
-    "User-Agent": "UnComfyApp/1.0 (uncomfy.com)", 
+    "User-Agent": "UnComfyApp/1.0 (contact@yourdomain.com)", 
     
     "Accept": "application/json",
     
