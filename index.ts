@@ -37,21 +37,6 @@ app.get("/",(req,res) =>{
     }
 });
 
-app.get("/dailychallenges", secureMiddleware, async (req, res) => {
-    const category = req.query.category as string || "Alle";
-    const search = req.query.search as string || "";
-
-    const challenges = await getChallenges(search, "title", "asc", category);
-    const completedChallenges = await getCompletedChallenges(req.session.user!._id?.toString() || "");
-
-    res.render("dailychallenges", {
-        challenges,
-        categoryFilter: category,
-        search,
-        completedChallenges
-    });
-});
-
 app.use(secureMiddleware, challengeRouter());
 
 app.get("/generator2",secureMiddleware,(req,res) =>{
