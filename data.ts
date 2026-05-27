@@ -63,7 +63,7 @@ export async function getChallenges(  q: string, sortField: SortField, sortDirec
   });
 }
 
-export async function getChallengeById(id: number, ): Promise<Challenge | undefined> {
+export async function getChallengeById(id: number): Promise<Challenge | undefined> {
     let challenge = await challengeCollection.findOne<Challenge>( {id : id} );
     return challenge ?? undefined;
 };
@@ -90,6 +90,22 @@ export async function getCompletedChallenges(userId: string) {
   return resultChallenges;
 }
 
+export async function completeChallenge(userId: string, challengeId: number) {
+  
+  let user = await userCollection.findOne<User>({_id: new ObjectId(userId)});
+
+  const challenges = await getActiveChallengeById(userId);
+
+  user!.points += challenges.activeChallenge?.comfyPoints!;
+
+  console.log(user!.points);
+  console.log(challenges.activeChallenge?.comfyPoints);
+
+  await userChallengesCollection.updateOne({challengeId: challengeId}, {$set: {status: "COMPLETED"}});
+  
+  await userCollection.updateOne({_id: new ObjectId(userId)}, {$set: {points: user!.points }});
+}
+
 export async function acceptChallenge(userId: ObjectId, challengeId: number){
   
   await userChallengesCollection.insertOne({
@@ -99,6 +115,10 @@ export async function acceptChallenge(userId: ObjectId, challengeId: number){
     acceptedAt: new Date(Date.now()),
   })
 
+}
+
+export async function getUserById(userId:ObjectId) {
+    return await userCollection.findOne<User>({ _id: new ObjectId(userId) });
 }
 
 export async function Login(username: string, password: string) {

@@ -1,7 +1,8 @@
 import express from "express";
-import { getChallenges, getChallengeById, getCompletedChallenges, acceptChallenge, getActiveChallengeById } from "../data";
+import { getChallenges, getChallengeById, getCompletedChallenges, acceptChallenge, getActiveChallengeById, completeChallenge } from "../data";
 import { Challenge } from "../types";
-import { ObjectId } from "mongodb";
+import { Collection, ObjectId } from "mongodb";
+import { userChallengesCollection } from "../database";
 
 
 export function challengeRouter() {
@@ -22,19 +23,23 @@ export function challengeRouter() {
                 return res.status(400).send("Invalid sorteer richting")
             }
             
-
             const challenges : Challenge[] = await getChallenges(q, sortField, sortDirection, category);
-            const completedChallenges = await getCompletedChallenges(new ObjectId(req.session.user?._id).toString());
+            const completedChallenges = await getCompletedChallenges(req.session.user!._id!.toString());
 
-            // Bekijk hoeveel challenges er beschikbaar zijn en hoeveel er al gedaan zijn? User logica? 
+            const completedIds = completedChallenges.map(item => item?.id );
             
+            const availableChallenges = challenges.filter(c => !completedIds.includes(c.id));
+            const doneChallenges = challenges.filter(c => completedIds.includes(c.id));
+
             res.render("dailychallenges", {
             error : "",
             challenges : challenges,
             q : q,
             sortField : sortField,
             sortDirection : sortDirection,
-            completedChallenges: completedChallenges
+            completedChallenges: completedIds,
+            availableChallenges: availableChallenges,
+            doneChallenges: doneChallenges
     });
     })
 
@@ -51,9 +56,7 @@ export function challengeRouter() {
 
         const challenge = await getChallengeById(parseInt(req.params.id));
         const activeChallenges = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
-        const completedChallenges = await getCompletedChallenges(new ObjectId(req.session.user?._id).toString());
-
-        const completedChallenge = completedChallenges.find((item) => item?.id == challenge?.id);
+        const completedChallenge = await getCompletedChallenges(req.session.user!._id!.toString());
 
         res.render("detailpage", {
             challenge: challenge,
@@ -66,6 +69,7 @@ export function challengeRouter() {
 
         const activeChallenge = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
 
+
         res.render("submitchallenge",
             {
                 challenge: activeChallenge.activeChallenge,
@@ -73,6 +77,15 @@ export function challengeRouter() {
             }
         );
     });
+
+    router.post("/submitchallenge/:id", async (req, res) => {
+    try {
+        await completeChallenge(new ObjectId(req.session.user?._id).toString(), parseInt(req.params.id));
+        res.redirect("/profilepage");
+        
+        } catch (error) {
+            console.log(error);
+    }});
     
     router.get("/currentchallenge", async (req, res) => {
 
