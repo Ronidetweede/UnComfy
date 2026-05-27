@@ -33,32 +33,21 @@ export async function getChallenges(
     }
     if (category) {
       switch (category) {
-        case "title":
-          break;
-        case "social":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Sociaal",
-          );
-
-          break;
-        case "physically":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Fysiek",
-          );
-
-          break;
-        case "public":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Publiek",
-          );
-
-          break;
-        case "mental":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Mentaal",
-          );
-
-          break;
+        case "Sociaal":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Sociaal");
+            break;
+        case "Fysiek":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Fysiek");
+            break;
+        case "Publiek":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Publiek");
+            break;
+        case "Mentaal":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Mentaal");
+            break;
+        case "Creatief":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Creatief");
+            break;
       }
     }
     if (sortDirection === "desc") {

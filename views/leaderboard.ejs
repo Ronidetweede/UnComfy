@@ -1,29 +1,21 @@
-<%- include("partials/header") %>
-    <link rel="stylesheet" href="/css/leaderbord.css">
-    </head>
-
-    <body>
-        <img src="./assets/Logo/Logo.png" class="logoDesktop">
-
-        <header>
-            <div class="header">
-                <a href="/menu">
-                    <img src="assets/icons/left-arrow.png" alt="Pijl">
-                </a>
-                <div class="tabs">
-                    <button id="week-button" class="week-button active">Week</button>
-                </div>
-                <div class="top3">
-                    <div class="person second">
-                        <img class="secondplace" src="assets/icons/secondplace.png">
-                        <img class="profile" src="<%= users[1]?.profilePicture ? '/uploads/' + users[1].profilePicture : 'assets/placeholders/Default_pfp.jpg' %>" alt="Profielfoto">
-                        <p>
-                            <%= users[1]?.displayName ?? "?" %>
-                        </p>
-                        <span>
-                            <%= users[1]?.points ?? 0 %>
-                        </span>
-                    </div>
+<%- include("partials/header", { css: 'leaderboard.css' }) %>       
+<img src="./assets/Logo/Logo.png" class="logoDesktop">
+<header>
+    <div class="header">
+        <a href="/menu">
+            <img src="assets/icons/left-arrow.png" alt="Pijl">
+        </a>
+        <div class="tabs">
+            <button id="week-button" class="week-button active">Week</button>
+            <button id="month-button" class="month-button">Maand</button>
+        </div>
+        <div class="top3">
+            <div class="person second">
+                <img class="secondplace" src="assets/icons/secondplace.png" alt="Second">
+                <img class="profile" src="assets/placeholders/jeffrey.png" alt="Jeffrey">
+                <p>Jeffrey</p>
+                <span>1130</span>
+            </div>
 
                     <div class="person first">
                         <img class="crown" src="assets/icons/crown.png">

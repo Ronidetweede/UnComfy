@@ -49,8 +49,9 @@
     font-weight: bold;
     grid-column: 2;
   }
+
   footer {
-    padding-top: 50px;
+    padding-top: 20px;
     grid-column: 1;
     grid-row: 2/3;
 
@@ -63,6 +64,8 @@
     position: relative;
     align-items: center;
     width: 100%;
+    border-top: 1.5px solid var(--backgroundcolor-green);
+    padding-top: 30px;
   }
 
   footer > .menu-icons > a {
@@ -74,6 +77,11 @@
     display: flex;
     align-items: center;
     gap: 16px;
+  }
+
+  footer a.active {
+    background-color: var(--backgroundcolor-green);
+    border-radius: 10px;
   }
 
   header > h3 {

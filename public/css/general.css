@@ -18,6 +18,13 @@
     --backgroundcolor-yellow: #F1E08B;
     --backgroundcolor-dark-yellow: #c5ab13;
 
+    /* Categories */
+    --category-social: #FACC15;
+    --category-physique: #F97316;
+    --category-public: #8B5CF6;
+    --category-mental: #3B82F6;
+    --category-creative: #EC4899;
+
     /* Fonts */
     --font-signature: "Averia Serif Libre", serif;
     --font-body: "Inter", sans-serif;
@@ -84,15 +91,14 @@ footer {
 }
 
 footer > .menu-icons {
-
   width: 100vmin;
-
   
   /* Flex-Box */
   display: flex;
   gap: 35px;
   justify-content: center;
   align-items: center;
+
   background-color: white;
   position: fixed;
   bottom: 0;  
@@ -102,32 +108,19 @@ footer > .menu-icons > a{
   padding: 6px 13px 4px 13px;
 }
 
-
 footer > .menu-icons > a > p{
   display: none;
+}
+
+@media (max-width: 767px) {
+  footer a.active {
+    color: var(--backgroundcolor-green);
+    border: none;
+    border-radius: 8px;
+    padding: 4px 10px;
+  }
 }
 
 .logoDesktop{
     display: none;
 }
-
-/* Menu Page */
-
-
-/* Index Page */
-
-
-
-/* Account-Setup */
-
-
-/* Achievement-page */
-
-
-/* Current-Challenge */
-
-
-/* Daily-challenges */
-
-
-/* Detail-Page */

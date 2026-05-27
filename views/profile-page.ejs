@@ -1,57 +1,50 @@
-<%- include("partials/header") %>
-    <link rel="stylesheet" href="/css/profile-page.css">
-    </head>
+<%- include("partials/header", { css: 'profile-page.css' }) %>
+<img src="./assets/Logo/Logo.png" class="logoDesktop">
+<header>
+    <div class="header">
+        <div class="profile">
+            <div class="personal">
+                <img class="profile-picture" src="<%= profilePicture ? '/uploads/' + profilePicture : 'assets/placeholders/Default_pfp.jpg' %>" alt="Profielfoto">
+                <h2><%= username %></h2>
+            </div>
+            <div class="dropdown">
+                <button id="menu-toggle">
+                    <img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon">
+                </button>
+                <div id="menu" class="menu hidden">
+                    <a href="/profilepage">Profiel</a>
+                    <a href="/avatar">Avatar</a>
+                    <a href="/colortheme">Thema</a>
+                    <a href="/subscription">Neem Premium</a>
+                    <a href="/tutorial">Tutorial</a>
+                    <a href="/termsofservice">Gebruiksvoorwaarden</a>
+                    <a href="/privacypolicy">Privacyverklaring</a>
 
-    <body>
-        <img src="./assets/Logo/Logo.png" class="logoDesktop">
-        <header>
-            <div class="header">
-                <div class="profile">
-                    <div class="personal">
-                        <img class="profile-picture" src="<%= profilePicture ? '/uploads/' + profilePicture : 'assets/placeholders/Default_pfp.jpg' %>" alt="Profielfoto">
-                        <h2><%= username %></h2>
-                    </div>
-                    <div class="dropdown">
-                        <button id="menu-toggle">
-                            <img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon">
-                        </button>
-                        <div id="menu" class="menu hidden">
-                            <a href="/profilepage">Profiel</a>
-                            <!-- <a href="avatar.html">Avatar</a> -->
-                            <a href="/colortheme">Thema</a>
-                            <a href="/subscription">Neem Premium</a>
-                            <a href="/tutorial">Tutorial</a>
-                            <a href="/termsofservice">Gebruiksvoorwaarden</a>
-                            <a href="/privacypolicy">Privacyverklaring</a>
-                            <a href="/settings">Instellingen</a>
-
-                            <form action="/logout" method="POST">
-                                <button type="submit">Uitloggen</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
+                    <form action="/logout" method="POST">
+                        <button type="submit">Uitloggen</button>
+                    </form>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
+</header>
 
-        <main>
-            <div class="points-card">
-                <p>Jouw ComfyPunten</p>
-                <h1><%= points %></h1>
-                <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
-            </div>
+<main>
+    <div class="points-card">
+        <p>Jouw ComfyPunten</p>
+        <h1><%= points %></h1>
+    </div>
 
-            <div class="tabs">
-                <button id="timeline-button" class="timeline-button active">
-                    <img id="timeline-icon" src="assets/icons/icon-timeline.png" alt="Klok-icoon">
-                    <p>Tijdlijn</p>
-                </button>
-                <button id="gallery-button" class="gallery-button">
-                    <img id="gallery-icon" src="assets/icons/icon-gallery-gray.png" alt="Galerij-icoon">
-                    <p>Galerij</p>
-                </button>
-            </div>
+    <div class="tabs">
+        <button id="timeline-button" class="timeline-button active">
+            <img id="timeline-icon" src="assets/icons/icon-timeline.png" alt="Klok-icoon">
+            <p>Tijdlijn</p>
+        </button>
+        <button id="gallery-button" class="gallery-button">
+            <img id="gallery-icon" src="assets/icons/icon-gallery-gray.png" alt="Galerij-icoon">
+            <p>Galerij</p>
+        </button>
+    </div>
 
             <div class="section-header">
                 <h3>Recente Prestaties</h3>
