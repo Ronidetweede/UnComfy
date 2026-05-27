@@ -44,7 +44,8 @@ export async function seedDatabase() {
 
   if (existingChallenges === 0) {
     const respone = await fetch(challengesUrl);
-    const challenges: Challenge[] = await respone.json();
+    const allChallenges: Challenge[] = await respone.json();
+    const challenges = allChallenges.filter(challenge => challenge.category !== "Ervaring");
 
     const locations = await fetchLocaties();
 
@@ -91,7 +92,8 @@ export async function seedDatabase() {
       const tags = randomLocation.tags;
       const street = tags["addr:street"] || "";
       const houseNumber = tags["addr:housenumber"] || "";
-      const city = tags["addr:city"] || "";
+
+
 
       challenge.location = {
         name: tags.name,
