@@ -24,7 +24,7 @@ export function registerRouter() {
 
       await Register(userName, userPassword);
 
-      res.redirect("/login");
+      res.redirect("/accountsetup");
     } catch (error: any) {
       res.render("register", { error: error.message });
     }
