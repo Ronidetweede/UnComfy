@@ -2,6 +2,7 @@ import { Challenge, User, UserChallenge } from "./types";
 import dotenv from "dotenv";
 import { MongoClient, SortDirection } from "mongodb";
 import bcrypt from "bcrypt";
+import { seedDatabase } from "./api";
 
 dotenv.config();
 
@@ -28,11 +29,13 @@ async function exit() {
 
 
 export async function connect() {
-    try {
+        try {
         await client.connect();
-        await loadDatabase();
-        console.log("Connected to database");
-        process.on("SIGINT", exit);
+            await seedDatabase();
+            await loadDatabase();
+            console.log("Connected to database");
+            process.on("SIGINT", exit);
+        
         
     } catch (error) {
         console.log(`Fout: ${error}`);

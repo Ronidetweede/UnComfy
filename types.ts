@@ -5,11 +5,17 @@ export interface Challenge{
     img_location : string;
     title : string;
     description : string;
-    location : string;
+    location : Location;
     joined_count : number;
     difficulty: string;
     category :string;
     comfyPoints: number;
+}
+
+export interface Location{
+  name: string;
+  address: string;
+  categoryLocation: string; 
 }
 
 export interface User {
