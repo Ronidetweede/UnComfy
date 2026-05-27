@@ -5,7 +5,7 @@
 <body>
     <img src="../assets/Logo/Logo.png" class="logoDesktop">
     <header>
-        <h3>«</h3>
+        <h3>Â«</h3>
         <h2>Daily Challenges</h2>
     </header>
     <main>
@@ -53,7 +53,7 @@
                 <div class="info-Card">
                     <h2 class="title-challenge" title="<%= challenge.title %>"><%= challenge.title %></h2>
                     <div class="extra-InfoCard">
-                        <p class="location-name"><img src="assets/icons/green-location.png" alt="Huis-icoon"> <%= challenge.location %></p>
+                        <p class="location-name"><img src="assets/icons/green-location.png" alt="Huis-icoon"> <%= challenge.location.address %></p>
                         <p class="people-joined"><img src="assets/icons/green-people.png" alt="Huis-icoon"> <%= challenge.joined_count %> gejoined</p>
                     </div>
                     <a href="/detailpage/<%= challenge.id %>"><button class="card-button">Meer Info</button></a>

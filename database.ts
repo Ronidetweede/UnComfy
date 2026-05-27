@@ -2,6 +2,7 @@ import { Challenge, User, UserChallenge } from "./types";
 import dotenv from "dotenv";
 import { MongoClient, SortDirection } from "mongodb";
 import bcrypt from "bcrypt";
+import { seedDatabase } from "./api";
 
 dotenv.config();
 
@@ -28,11 +29,13 @@ async function exit() {
 
 
 export async function connect() {
-    await client.connect();
-    await createInitialUser();
-    await loadDatabase();
-    console.log("Connected to database");
-    process.on("SIGINT", exit);
+        await client.connect();
+        await createInitialUser();
+        await seedDatabase();
+        await loadDatabase();
+        console.log("Connected to database");
+        process.on("SIGINT", exit);
+        
 }
 
 async function loadDatabase() {
@@ -67,4 +70,3 @@ async function createInitialUser() {
         role: "ADMIN"
     });
 }
-

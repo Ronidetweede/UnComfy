@@ -1,21 +1,6 @@
 import { MongoClient } from "mongodb";
-import { Challenge } from "./types.ts";
-
-// interface Challenge {
-//     id: number;
-//     img_location: string;
-//     title: string;
-//     description: string;
-//     location: string;
-//     joined_count: number;
-//     difficulty: string;
-//     category: string;
-//     comfyPoints: number;
-// }
-
-const MONGO_URI = "mongodb+srv://roniberisha_db_user:pmTgKZa85mBFeJj@mongooef.9hppzqd.mongodb.net";
-const DB_NAME = "mongooef";
-const COLLECTION = "challenges";
+import { Challenge, Location } from "./types";
+import { challengeCollection, client } from "./database";
 
 async function fetchLocaties() {
   const query = `
@@ -32,16 +17,32 @@ async function fetchLocaties() {
     out center;
   `;
 
+  
+
   const response = await fetch("https://overpass-api.de/api/interpreter", {
     method: "POST",
+    headers: {
+    
+    // Dit moet voor OpenStreetMap 
+    "User-Agent": "UnComfyApp/1.0 (uncomfy.com)", 
+    
+    "Accept": "application/json",
+    
+    "Content-Type": "application/x-www-form-urlencoded" 
+  },
     body: new URLSearchParams({ data: query }),
-  });
+  }
+);
+    if (!response.ok) {
+        throw new Error(`Overpass API fout: ${response.status} ${response.statusText}`);
+    }
 
   const data = await response.json();
   return data.elements;
 }
 
-async function seedDatabase() {
+
+export async function seedDatabase() {
   const elementen = await fetchLocaties();
   const challenges:Challenge[] = [];
   let id = 1;
@@ -53,25 +54,30 @@ async function seedDatabase() {
     if (tags.name === undefined || tags.name === "") continue;
     if (tags["addr:street"] === undefined && tags["addr:city"] === undefined) continue;
 
-    const straat = tags["addr:street"] || "";
-    const nummer = tags["addr:housenumber"] || "";
-    const stad = tags["addr:city"] || "";
-    const adres = straat + " " + nummer + " " + stad;
+    const street = tags["addr:street"] || "";
+    const houseNumber = tags["addr:housenumber"] || "";
+    const city = tags["addr:city"] || "";
+    const address = street + " " + houseNumber + " " + city;
 
-    let categorie = "overig";
-    if (tags["amenity"] === "restaurant") categorie = "restaurant";
-    if (tags["amenity"] === "cafe") categorie = "cafe";
-    if (tags["leisure"] === "park") categorie = "park";
+    let category = "overig";
+    if (tags["amenity"] === "restaurant") category = "restaurant";
+    if (tags["amenity"] === "cafe") category = "cafe";
+    if (tags["leisure"] === "park") category = "park";
 
     const challenge: Challenge = {
       id: id,
       img_location: "",
       title: tags.name,
       description: "",
-      location: adres.trim(),
+      location: 
+      {
+        name: tags.name,
+        address: address,
+        categoryLocation: category
+      },
       joined_count: 0,
       difficulty: "easy",
-      category: categorie,
+      category: category,
       comfyPoints: 0,
     };
 
@@ -79,18 +85,10 @@ async function seedDatabase() {
     id++;
   }
 
-  const client = new MongoClient(MONGO_URI);
-  await client.connect();
 
-  const db = client.db(DB_NAME);
-  const collection = db.collection(COLLECTION);
-
-  await collection.deleteMany({});
-  await collection.insertMany(challenges);
+  await challengeCollection.deleteMany({});
+  await challengeCollection.insertMany(challenges);
 
   console.log(challenges.length + " challenges opgeslagen in MongoDB.");
 
-  await client.close();
 }
-
-seedDatabase();
