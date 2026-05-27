@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import express, { Express } from "express";
 import path from "node:path";
 import { getActiveChallengeById, getChallengeById, getChallenges, getCompletedChallenges, getLeaderBoard, getUserById } from "./data";
-import { Challenge } from "./types";
 import { loginRouter } from "./routers/loginRouter";
 import { registerRouter } from "./routers/registerRouter";
 import { connect } from "./database";
@@ -38,21 +37,6 @@ app.get("/",(req,res) =>{
 });
 
 app.use(secureMiddleware, challengeRouter());
-
-app.get("/generator2",secureMiddleware,(req,res) =>{
-    res.render("generator-part2");
-});
-
-app.post("/generator2",secureMiddleware,(req,res) =>{
-
-    // Logica voor de antwoorden op te slagen.
-
-});
-
-
-app.get("/generator",secureMiddleware,(req,res) =>{
-    res.render("generator");
-});
 
 app.get("/leaderboard",secureMiddleware,async( req,res) =>{
 
@@ -93,9 +77,6 @@ app.get("/rewards",secureMiddleware,(req,res) =>{
     res.render("rewards", { currentPath: '/rewards' });
 });
 
-app.get("/settings",secureMiddleware,(req,res) =>{
-    res.render("settings");
-});
 
 app.get("/submitchallenge",secureMiddleware,(req,res) =>{
     res.render("submitchallenge", { currentPath: '/submitchallenge' });
