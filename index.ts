@@ -10,7 +10,6 @@ import session from "./session";
 import { secureMiddleware } from "./secureMiddleware";
 import { challengeRouter } from "./routers/challengeRouter";
 import { ObjectId } from "mongodb";
-import { copyFile } from "node:fs";
 
 dotenv.config();
 
@@ -38,37 +37,40 @@ app.get("/",(req,res) =>{
     }
 });
 
+app.get("/dailychallenges", secureMiddleware, async (req, res) => {
+    const category = req.query.category as string || "Alle";
+    const search = req.query.search as string || "";
 
+    const challenges = await getChallenges(search, "title", "asc", category);
+    const completedChallenges = await getCompletedChallenges(req.session.user!._id?.toString() || "");
 
-app.get("/achievements",secureMiddleware,( req,res) =>{
-    res.render("achievements");
-});
-
-app.get("/avatar",secureMiddleware,( req,res) =>{
-    res.render("avatar");
+    res.render("dailychallenges", {
+        challenges,
+        categoryFilter: category,
+        search,
+        completedChallenges
+    });
 });
 
 app.use(secureMiddleware, challengeRouter());
 
-app.get("/generator2",secureMiddleware,( req,res) =>{
-
-
+app.get("/generator2",secureMiddleware,(req,res) =>{
     res.render("generator-part2");
 });
 
-app.post("/generator2",secureMiddleware,( req,res) =>{
+app.post("/generator2",secureMiddleware,(req,res) =>{
 
     // Logica voor de antwoorden op te slagen.
 
 });
 
 
-app.get("/generator",secureMiddleware,( req,res) =>{
+app.get("/generator",secureMiddleware,(req,res) =>{
     res.render("generator");
 });
 
-app.get("/leaderboard",secureMiddleware,( req,res) =>{
-    res.render("leaderboard");
+app.get("/leaderboard",secureMiddleware,(req,res) =>{
+    res.render("leaderboard", { currentPath: '/leaderboard' });
 });
 
 app.get("/menu",secureMiddleware, async( req,res) =>{
@@ -76,15 +78,16 @@ app.get("/menu",secureMiddleware, async( req,res) =>{
     const activeChallenge = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
     
     res.render("menu", {
-        challenge: activeChallenge.activeChallenge
+        challenge: activeChallenge.activeChallenge,
+        currentPath: '/menu'
     });
 });
 
-app.get("/privacypolicy",secureMiddleware,( req,res) =>{
+app.get("/privacypolicy",secureMiddleware,(req,res) =>{
     res.render("privacy-policy");
 });
 
-app.get("/profilepage",secureMiddleware, async ( req,res) =>{
+app.get("/profilepage",secureMiddleware, async (req,res) =>{
 
     const completedChallenges = await getCompletedChallenges(new ObjectId(req.session.user?._id).toString());
 
@@ -92,31 +95,32 @@ app.get("/profilepage",secureMiddleware, async ( req,res) =>{
         {
             username : req.session.user?.displayName,
             points: req.session.user?.points,
-            challenges: completedChallenges
+            challenges: completedChallenges,
+            currentPath: '/profilepage'
         });
 });
 
-app.get("/rewards",secureMiddleware,( req,res) =>{
-    res.render("rewards");
+app.get("/rewards",secureMiddleware,(req,res) =>{
+    res.render("rewards", { currentPath: '/rewards' });
 });
 
-app.get("/settings",secureMiddleware,( req,res) =>{
+app.get("/settings",secureMiddleware,(req,res) =>{
     res.render("settings");
 });
 
-app.get("/submitchallenge",secureMiddleware,( req,res) =>{
-    res.render("submitchallenge");
+app.get("/submitchallenge",secureMiddleware,(req,res) =>{
+    res.render("submitchallenge", { currentPath: '/submitchallenge' });
 });
 
-app.get("/subscription",secureMiddleware,( req,res) =>{
+app.get("/subscription",secureMiddleware,(req,res) =>{
     res.render("subscription");
 });
 
-app.get("/termsofservice",secureMiddleware,( req,res) =>{
+app.get("/termsofservice",secureMiddleware,(req,res) =>{
     res.render("terms-of-service");
 });
 
-app.get("/tutorial",secureMiddleware,( req,res) =>{
+app.get("/tutorial",secureMiddleware,(req,res) =>{
     res.render("tutorial");
 });
 

@@ -1,18 +1,16 @@
-/* Header */
-
-header {
-  height: 200px;
-
+.container {
   /* Flexbox */
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: 30px;
 }
 
 header h1 {
   font-weight: 700;
   font-size: var(--fs-heading-mobile);
   font-family: var(--font-signature);
-  text-align: left;
 }
 
 .extra-text {
@@ -27,7 +25,8 @@ header h1 {
 
 
 .form-div {
-  margin: 0 1rem;
+  width: 100%;
+  max-width: 320px;
 
   /* Flexbox */
   display: flex;

@@ -1,117 +1,106 @@
 .green-box {
     background-color: var(--backgroundcolor-green);
     width: 100%;
-    height: 40px;
+    padding: 20px 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
 .green-box h2 {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.table-headers {
-    width: 93%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    font-size: 11px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-white);
 }
 
 .rewards-list {
     width: 93%;
-    margin: 15px 0 50px 0;
+    padding: 16px 0 100px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
 .reward {
-    display: grid;
-    grid-template-columns: 65px 1fr 58px;
-    gap: 14px;
-    border-bottom: 0.2px solid var(--backgroundcolor-green);
+    display: flex;
     align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 14px;
+    background: var(--text-white);
+    cursor: pointer;
+}
+
+.reward:hover {
+    border: 0.5px solid var(--text-muted);
 }
 
 .brand-image img {
-    width: 70px;
+    width: 52px;
+    height: 52px;
     border-radius: 8px;
+}
+
+.description {
+    flex: 1;
+    min-width: 0;
 }
 
 .description .label {
     font-size: 11px;
-    color: gray;
+    color: var(--text-muted);
 }
 
 .description .brand {
     font-size: 13px;
+    font-weight: 600;
+    color: var(--text-black);
     margin-bottom: 2px;
 }
 
 .description .offer {
-    font-size: 11px;
-    margin-bottom: 2px;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
 }
 
 .description .claim {
-    font-size: 12px;
-    margin-bottom: 5px;
+    font-size: 11px;
+    color: var(--text-muted);
 }
 
 .points {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 13px;
-}
-
-.points img {
-    width: 7px;
-}
-
-.white-icon {
-    display: none;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-green);
+    background-color: var(--backgroundcolor-green);
+    padding: 4px 10px;
+    border-radius: 20px;
 }
 
 @media screen and (min-width: 1024px) {
-
-footer > .menu-icons > a:nth-child(3){
+    footer > .menu-icons > a:nth-child(3){
       background-color: var(--backgroundcolor-green);
       color: white;
-  }
-.black-icon{
-display: none;
-}
+    }
 
-.white-icon {
-display: block;
-}
+    .green-box {
+        padding: 28px 40px;
+    }
 
-header{
-    justify-content: start;
-    align-content: start;
+    .green-box h2 {
+        font-size: var(--fs-heading-desktop);
+        font-weight: bold;
+    }
 
-    justify-items: start;
-    align-items: start;
-    height: 100px;
-}
-
-header > .green-box > h2{
-    font-size: var(--fs-heading-desktop);
-    font-weight: bold;
-}
-.green-box{
-    align-self: flex-start;
-
-    justify-content: start;
-    align-content: center;
-    height: 140px;
-    padding-left: 2rem;
-}
-
-
-
+    .rewards-list {
+        width: 90%;
+        padding: 20px 0 60px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
 }

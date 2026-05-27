@@ -1,79 +1,70 @@
-<%- include("partials/header") %>
-    <link rel="stylesheet" href="/css/profile-page.css">
-    </head>
+<%- include("partials/header", { css: 'profile-page.css' }) %>
+<img src="./assets/Logo/Logo.png" class="logoDesktop">
+<header>
+    <div class="header">
+        <div class="profile">
+            <div class="personal">
+                <img class="profile-picture" src="assets/placeholders/helena.png" alt="Profielfoto">
+                <h2><%= username %></h2>
+            </div>
+            <div class="dropdown">
+                <button id="menu-toggle">
+                    <img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon">
+                </button>
+                <div id="menu" class="menu hidden">
+                    <a href="/profilepage">Profiel</a>
+                    <a href="/avatar">Avatar</a>
+                    <a href="/colortheme">Thema</a>
+                    <a href="/subscription">Neem Premium</a>
+                    <a href="/tutorial">Tutorial</a>
+                    <a href="/termsofservice">Gebruiksvoorwaarden</a>
+                    <a href="/privacypolicy">Privacyverklaring</a>
 
-    <body>
-        <img src="./assets/Logo/Logo.png" class="logoDesktop">
-        <header>
-            <div class="header">
-                <div class="profile">
-                    <div class="personal">
-                        <img class="profile-picture" src="assets/placeholders/helena.png" alt="Profielfoto">
-                        <h2><%= username %></h2>
-                    </div>
-                    <div class="dropdown">
-                        <button id="menu-toggle">
-                            <img class="menu-icon" src="assets/icons/menu-icon.png" alt="Menu-icoon">
-                        </button>
-                        <div id="menu" class="menu hidden">
-                            <a href="/profilepage">Profiel</a>
-                            <!-- <a href="avatar.html">Avatar</a> -->
-                            <a href="/colortheme">Thema</a>
-                            <a href="/subscription">Neem Premium</a>
-                            <a href="/tutorial">Tutorial</a>
-                            <a href="/termsofservice">Gebruiksvoorwaarden</a>
-                            <a href="/privacypolicy">Privacyverklaring</a>
-                            <a href="/settings">Instellingen</a>
-
-                            <form action="/logout" method="POST">
-                                <button type="submit">Uitloggen</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
+                    <form action="/logout" method="POST">
+                        <button type="submit">Uitloggen</button>
+                    </form>
                 </div>
             </div>
-        </header>
+        </div>
+    </div>
+</header>
 
-        <main>
-            <div class="points-card">
-                <p>Jouw ComfyPunten</p>
-                <h1><%= points %></h1>
-                <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
-            </div>
+<main>
+    <div class="points-card">
+        <p>Jouw ComfyPunten</p>
+        <h1><%= points %></h1>
+    </div>
 
-            <div class="tabs">
-                <button id="timeline-button" class="timeline-button active">
-                    <img id="timeline-icon" src="assets/icons/icon-timeline.png" alt="Klok-icoon">
-                    <p>Tijdlijn</p>
-                </button>
-                <button id="gallery-button" class="gallery-button">
-                    <img id="gallery-icon" src="assets/icons/icon-gallery-gray.png" alt="Galerij-icoon">
-                    <p>Galerij</p>
-                </button>
-            </div>
+    <div class="tabs">
+        <button id="timeline-button" class="timeline-button active">
+            <img id="timeline-icon" src="assets/icons/icon-timeline.png" alt="Klok-icoon">
+            <p>Tijdlijn</p>
+        </button>
+        <button id="gallery-button" class="gallery-button">
+            <img id="gallery-icon" src="assets/icons/icon-gallery-gray.png" alt="Galerij-icoon">
+            <p>Galerij</p>
+        </button>
+    </div>
 
-            <div class="section-header">
-                <h3>Recente Prestaties</h3>
-                <a href="/achievements">Bekijk Alle</a>
-            </div>
-        <% for (let challenge of challenges) { %>
-            <div id="achievements" class="achievements">
-                <div class="achievement"><a href="/detailpage/<%= challenge.id %>">
-                        <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
-                        <div class="overlay"></div>
-                        <div class="description">
-                            <p><%= challenge.title %></p>
-                            <div class="points">
-                                <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
-                                <span><%= challenge.comfyPoints %></span>
-                            </div>
-                        </div>
-                        <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
-                        <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
-                    </a>
+    <div class="section-header">
+        <h3>Recente Prestaties</h3>
+    </div>
+<% for (let challenge of challenges) { %>
+    <div id="achievements" class="achievements">
+        <div class="achievement"><a href="/detailpage/<%= challenge.id %>">
+                <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
+                <div class="overlay"></div>
+                <div class="description">
+                    <p><%= challenge.title %></p>
+                    <div class="points">
+                        <img src="assets/icons/trophy-icon.png" alt="Trofee-icoon">
+                        <span><%= challenge.comfyPoints %></span>
+                    </div>
                 </div>
-            <% } %>
-        </main>
-        <script src="/js/profile-page.js"></script>
-        <%- include("partials/footer") %>
+                <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
+            </a>
+        </div>
+    <% } %>
+</main>
+<script src="/js/profile-page.js"></script>
+<%- include("partials/footer") %>

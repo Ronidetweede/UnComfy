@@ -1,46 +1,35 @@
-<%- include("partials/header") %>
-  <link rel="stylesheet" href="/css/login.css">
-  </head>
-
-  <body>
-    <div class="container">
-
-      <header>
-        <div class="title">
-          <h1>un<br>(comfy)</h1>
-        </div>
-      </header>
-      <main>
-
-        <div class="form-div">
-          <section>
-            <h2>Maak een account aan</h2>
-            <p>Vul je e-mailadres in om je aan te melden voor deze app</p>
-          </section>
-          <% if (error) { %>
-            <p class="login-error">
-              <%= error %>
-            </p>
-            <% } %>
-              <form method="POST" action="/register">
-                <input type="text" name="username" id="username" placeholder="jeffbezos" required class="input-field" />
-                <input type="password" name="password" id="password" placeholder="Vul je wachtwoord in" required
-                  class="input-field" />
-
-                <button type="submit" class="continue-button">Doorgaan</button>
-              </form>
-
-              <p>or</p>
-              <p class="login-switch">
-                Al een account? <a href="/login">Log in hier</a>
-              </p>
-              <section class="terms">
-                <p>
-                  Door op ‘Doorgaan’ te klikken, gaat u akkoord met onze
-                  <a href="termsofservice">Gebruiksvoorwaarden</a> and <a href="privacypolicy">Privacybeleid</a>
-                  <!-- gelinkt naar bestaande pagina's -->
-                </p>
-              </section>
-        </div>
-      </main>
+<%- include("partials/header", { css: 'login.css', includeDesktopLayout: false }) %>
+<main class="container">
+  <header>
+    <div class="title">
+      <h1>un<br>(comfy)</h1>
     </div>
+  </header>
+  <div class="form-div">
+    <section>
+      <h2>Maak een account aan</h2>
+      <p>Kies je inloggegevens om een account aan te maken</p>
+    </section>
+    <% if (error) { %>
+      <p class="login-error">
+        <%= error %>
+      </p>
+      <% } %>
+        <form method="POST" action="/register">
+          <input type="text" name="username" id="username" placeholder="Kies een gebruikersnaam" required class="input-field" />
+          <input type="password" name="password" id="password" placeholder="Kies een wachtwoord" required
+            class="input-field" />
+
+          <button type="submit" class="continue-button">Doorgaan</button>
+        </form>
+        <p class="login-switch">
+          Heb je al een account? <a href="/login" style="color: darkgray">Log in</a>
+        </p>
+        <section class="terms">
+          <p>
+            Door op ‘Doorgaan’ te klikken, gaat u akkoord met onze
+            <a href="termsofservice">Gebruiksvoorwaarden</a> and <a href="privacypolicy">Privacybeleid</a>
+          </p>
+        </section>
+  </div>
+</main>

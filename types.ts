@@ -32,6 +32,8 @@ export interface UserChallenge {
 }
 
 
+
+
 // Sortfield moet nog de fields krijgen bv. sociaal, mentaal, 
 // aantal gejoined, moeilijkheidsgraad, etc..
 

@@ -19,32 +19,21 @@ export async function getChallenges(  q: string, sortField: SortField, sortDirec
     }
     if (category) {
       switch (category) {
-        case "title":
-          break;
-        case "social":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Sociaal",
-          );
-
-          break;
-        case "physically":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Fysiek",
-          );
-
-          break;
-        case "public":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Publiek",
-          );
-
-          break;
-        case "mental":
-          filteredChallenges = filteredChallenges.filter(
-            (challenge) => challenge.category === "Mentaal",
-          );
-
-          break;
+        case "Sociaal":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Sociaal");
+            break;
+        case "Fysiek":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Fysiek");
+            break;
+        case "Publiek":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Publiek");
+            break;
+        case "Mentaal":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Mentaal");
+            break;
+        case "Creatief":
+            filteredChallenges = filteredChallenges.filter(c => c.category === "Creatief");
+            break;
       }
     }
     if (sortDirection === "desc") {
@@ -131,5 +120,13 @@ export async function Register(username: string, password: string) {
     role: "USER",
     points: 0,
   });
+}
+
+export async function updateAvatar(userId: string, avatar: string | undefined) {
+    if (!avatar) return;
+    await userCollection.updateOne(
+        { _id: new ObjectId(userId) },
+        { $set: { avatar: avatar } }
+    );
 }
 

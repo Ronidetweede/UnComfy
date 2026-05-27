@@ -1,167 +1,163 @@
-<%- include("partials/header") %>
-<link rel="stylesheet" href="/css/rewards.css">
-</head>
-
-<body>
-    <img src="./assets/Logo/Logo.png" class="logoDesktop">
-    <header>
-        <div class="green-box">
-            <h2>Beloningen</h2>
+<%- include("partials/header", { css: 'rewards.css' }) %>
+<img src="./assets/Logo/Logo.png" class="logoDesktop">
+<header>
+    <div class="green-box">
+        <h2>Beloningen</h2>
+    </div>
+</header>
+<main>
+    <div class="rewards-list">
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/burgercrown.png" alt="BurgerCrown-logo">
+            </div>
+            <div class="description">
+                <div class="brand">BURGER CROWN</div>
+                <div class="offer">Ontvang 15% korting op je volgende bestelling</div>
+                <div class="claim">CLAIM VÒÒR 20/11/2026</div>
+            </div>
+            <div class="points">
+                <span>567CP</span>
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
+            </div>
         </div>
-    </header>
 
-    <main>
-        <div class="table-headers">
-            <h3>ITEMS</h3>
-            <h3>BESCHRIJVING</h3>
-            <h3>COMFYPUNTEN</h3>
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/forkknife.png" alt="ForkKnife-logo">
+            </div>
+            <div class="description">
+                <div class="brand">ForkKnife</div>
+                <div class="offer">Ontvang 200 ForkBucks</div>
+                <div class="claim">CLAIM VÒÒR 01/01/2027</div>
+            </div>
+            <div class="points">
+                <span>899CP</span>
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
+            </div>
         </div>
 
-        <div class="rewards-list">
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/burgercrown.png" alt="BurgerCrown-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">BURGER CROWN</div>
-                    <div class="offer">Ontvang 15% korting op je volgende bestelling</div>
-                    <div class="claim">CLAIM VÒÒR 20/11/2026</div>
-                </div>
-                <div class="points">
-                    <span>567CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/coolgroen.png" alt="CoolGroen-logo">
             </div>
-
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/forkknife.png" alt="ForkKnife-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">ForkKnife</div>
-                    <div class="offer">Ontvang 200 ForkBucks</div>
-                    <div class="claim">CLAIM VÒÒR 01/01/2027</div>
-                </div>
-                <div class="points">
-                    <span>899CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+            <div class="description">
+                <div class="brand">CoolGroen</div>
+                <div class="offer">Ontvang een 5 euro coupon</div>
+                <div class="claim">CLAIM VÒÒR 07/12/2026</div>
             </div>
-
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/coolgroen.png" alt="CoolGroen-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">CoolGroen</div>
-                    <div class="offer">Ontvang een 5 euro coupon</div>
-                    <div class="claim">CLAIM VÒÒR 07/12/2026</div>
-                </div>
-                <div class="points">
-                    <span>999CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+            <div class="points">
+                <span>999CP</span>
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
             </div>
+        </div>
 
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/buber.png" alt="buber-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">buber</div>
-                    <div class="offer">Ontvang 10% korting op je volgende rit</div>
-                    <div class="claim">CLAIM VÒÒR 10/04/2026</div>
-                </div>
-                <div class="points">
-                    <span>222CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/buber.png" alt="buber-logo">
             </div>
-
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/andyexpress.png" alt="AndyExpress-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">AndyExpress</div>
-                    <div class="offer">Ontvang 2 gratis artikelen bij een bestelling van €20+</div>
-                    <div class="claim">CLAIM VÒÒR 20/12/2026</div>
-                </div>
-                <div class="points">
-                    <span>505CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+            <div class="description">
+                <div class="brand">buber</div>
+                <div class="offer">Ontvang 10% korting op je volgende rit</div>
+                <div class="claim">CLAIM VÒÒR 10/04/2026</div>
             </div>
-
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/makeafish.png" alt="MakeAFish-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">Make-A-fish-Foundation</div>
-                    <div class="offer">Doneer €3 aan MAFF</div>
-                    <div class="claim">CLAIM VÒÒR 01/01/2027</div>
-                </div>
-                <div class="points">
-                    <span>100CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
-            </div>   
-
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/burgercrown.png" alt="BurgerCrown-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">BURGER CROWN</div>
-                    <div class="offer">Ontvang 15% korting op je volgende bestelling</div>
-                    <div class="claim">CLAIM VÒÒR 20/11/2026</div>
-                </div>
-                <div class="points">
-                    <span>567CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+            <div class="points">
+                <span>222CP</span>
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
             </div>
+        </div>
 
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/forkknife.png" alt="ForkKnife-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">ForkKnife</div>
-                    <div class="offer">Ontvang 200 ForkBucks</div>
-                    <div class="claim">CLAIM VÒÒR 01/01/2027</div>
-                </div>
-                <div class="points">
-                    <span>899CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/andyexpress.png" alt="AndyExpress-logo">
             </div>
+            <div class="description">
+                <div class="brand">AndyExpress</div>
+                <div class="offer">Ontvang 2 gratis artikelen bij een bestelling van €20+</div>
+                <div class="claim">CLAIM VÒÒR 20/12/2026</div>
+            </div>
+            <div class="points">
+                <span>505CP</span>
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
 
-            <div class="reward">
-                <div class="brand-image">
-                    <img src="assets/placeholders/coolgroen.png" alt="CoolGroen-logo">
-                </div>
-                <div class="description">
-                    <div class="label">Merk</div>
-                    <div class="brand">CoolGroen</div>
-                    <div class="offer">Ontvang een 5 euro coupon</div>
-                    <div class="claim">CLAIM VÒÒR 07/12/2026</div>
-                </div>
-                <div class="points">
-                    <span>999CP</span>
-                    <span><img src="assets/icons/right-arrow.png" alt=""></span>
-                </div>
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/makeafish.png" alt="MakeAFish-logo">
             </div>
-        </div>    
-        <!-- Dit zijn placeholders! Inladen met javascript/typescript -->  
-    </main>
+            <div class="description">
+                <div class="brand">Make-A-fish-Foundation</div>
+                <div class="offer">Doneer €3 aan MAFF</div>
+                <div class="claim">CLAIM VÒÒR 01/01/2027</div>
+            </div>
+            <div class="points">
+                <span>100CP</span>
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
+            </div>
+        </div>   
+
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/burgercrown.png" alt="BurgerCrown-logo">
+            </div>
+            <div class="description">
+                <div class="brand">BURGER CROWN</div>
+                <div class="offer">Ontvang 15% korting op je volgende bestelling</div>
+                <div class="claim">CLAIM VÒÒR 20/11/2026</div>
+            </div>
+            <div class="points">
+                <span>567CP</span>
+                <span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        <div class="reward">
+            <div class="brand-image">
+                <img src="assets/placeholders/forkknife.png" alt="ForkKnife-logo">
+            </div>
+            <div class="description">
+                <div class="brand">ForkKnife</div>
+                <div class="offer">Ontvang 200 ForkBucks</div>
+                <div class="claim">CLAIM VÒÒR 01/01/2027</div>
+            </div>
+            <div class="points">
+                <span>899CP</span>
+                <span> 
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color: white;" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </div>    
+</main>
 <%- include("partials/footer") %>
