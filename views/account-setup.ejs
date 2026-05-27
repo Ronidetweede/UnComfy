@@ -10,36 +10,41 @@
       <h2 class="text-edit-profile">Bewerk Profiel</h2>
     </header>
     <main>
-      <section class="profile-picture">
-        <div class="profile-circle">
-          <img
-            src="./assets/placeholders/Default_pfp.jpg"
-            alt="profile-picture"
-            class="profile"
-          />
-          <button>
-            <img src="./assets/icons/camera-button.png" alt="camera-button" />
-          </button>
-        </div>
+      <form action="/accountsetup" method="post" enctype="multipart/form-data">
 
-        <h2>Helena Hills</h2>
-        <p>Tik op de camera om de foto te wijzigen</p>
-      </section>
+        <section class="profile-picture">
+          <div class="profile-circle">
+            <img
+              id="profile-preview"
+              src="<%= profilePicture ? '/uploads/' + profilePicture : './assets/placeholders/Default_pfp.jpg' %>"
+              alt="profile-picture"
+              class="profile"
+            />
+            <button type="button" id="camera-btn">
+              <img src="./assets/icons/camera-button.png" alt="camera-button" />
+            </button>
+          </div>
 
-      <section class="personal-info">
-        <h2>Persoonlijke gegevens</h2>
+          <input type="file" id="photo-input" name="photo" accept="image/*" style="display:none">
 
-        <form>
+          <h2><%= displayname %></h2>
+          <p>Tik op de camera om de foto te wijzigen</p>
+        </section>
+
+        <section class="personal-info">
+          <h2>Persoonlijke gegevens</h2>
+
           <div class="input-container">
-            <label for="name">
+            <label for="displayName">
               <img src="./assets/icons/green-profile.png" alt="green-person" />
-              <p>Naam</p>
+              <p>Display Naam</p>
             </label>
             <input
               type="text"
-              name="name"
-              id="name"
-              placeholder="Helena Hills"
+              name="displayName"
+              id="displayName"
+              placeholder="<%= displayname %>"
+              value="<%= displayname %>"
               required
             />
           </div>
@@ -53,7 +58,8 @@
               type="text"
               name="username"
               id="username"
-              placeholder="helenahills"
+              placeholder="<%= username %>"
+              value="<%= username %>"
               required
             />
           </div>
@@ -67,52 +73,34 @@
               type="email"
               name="email"
               id="email"
-              placeholder="helena.hills@mail.com"
+              placeholder="<%= email %>"
+              value="<%= email %>"
               required
             />
           </div>
-        </form>
-      </section>
+        </section>
 
-      <section class="account-settings">
-        <h2>Account Instellingen</h2>
+        <button type="submit" class="save-button">
+          <img src="./assets/icons/save-changes-icon.png" alt="save-changes-icon" />
+          <p>Wijzigingen opslaan</p>
+        </button>
 
-        <form>
-          <div class="input-container">
-            <label for="password">Wachtwoord</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="******"
-            />
-          </div>
-          <div class="input-container">
-            <label for="confirm-password">Bevestig Wachtwoord</label>
-            <input
-              type="password"
-              name="confirm-password"
-              id="confirm-password"
-              placeholder="******"
-            />
-          </div>
-          <div class="input-container">
-            <label for="notifications">Meldingen</label>
-            <select name="notifications" id="notifications">
-              <option value="">-- Select --</option>
-              <option value="enabled">Aan</option>
-              <option value="disabled">Uit</option>
-            </select>
-          </div>
-        </form>
-      </section>
-
-      <button class="save-button">
-        <img
-          src="./assets/icons/save-changes-icon.png"
-          alt="save-changes-icon"
-        />
-        <p>Wijzigingen opslaan</p>
-      </button>
+      </form>
     </main>
-<%- include("partials/footer") %>
+
+    <script>
+      const cameraBtn = document.getElementById("camera-btn");
+      const photoInput = document.getElementById("photo-input");
+      const profilePreview = document.getElementById("profile-preview");
+
+      cameraBtn.addEventListener("click", () => {
+        photoInput.click();
+      });
+
+      photoInput.addEventListener("change", () => {
+        const file = photoInput.files[0];
+        if (file) {
+          profilePreview.src = URL.createObjectURL(file);
+        }
+      });
+    </script>

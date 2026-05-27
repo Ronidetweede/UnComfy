@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
 import express, { Express } from "express";
 import path from "node:path";
-import { getActiveChallengeById, getChallengeById, getChallenges, getCompletedChallenges, getUserById } from "./data";
+import { getActiveChallengeById, getChallengeById, getChallenges, getCompletedChallenges, getLeaderBoard, getUserById } from "./data";
 import { Challenge } from "./types";
 import { loginRouter } from "./routers/loginRouter";
 import { registerRouter } from "./routers/registerRouter";
@@ -67,14 +67,17 @@ app.get("/generator",secureMiddleware,( req,res) =>{
     res.render("generator");
 });
 
-app.get("/leaderboard",secureMiddleware,( req,res) =>{
-    res.render("leaderboard");
+app.get("/leaderboard",secureMiddleware,async( req,res) =>{
+
+    let allUsers = await getLeaderBoard();
+
+    res.render("leaderboard", {users: allUsers});
 });
 
 app.get("/menu",secureMiddleware, async( req,res) =>{
 
     const activeChallenge = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
-    
+
     res.render("menu", {
         challenge: activeChallenge.activeChallenge
     });
@@ -87,13 +90,14 @@ app.get("/privacypolicy",secureMiddleware,( req,res) =>{
 app.get("/profilepage",secureMiddleware, async ( req,res) =>{
 
     const completedChallenges = await getCompletedChallenges(req.session.user!._id!.toString());
-    const updatedUser = await getUserById(req.session.user?._id!);
+    const user = await getUserById(req.session.user?._id!);
 
     res.render("profile-page",
         {
             username : req.session.user?.displayName,
-            points: updatedUser?.points,
-            challenges: completedChallenges
+            points: user?.points,
+            challenges: completedChallenges,
+            profilePicture: user?.profilePicture ?? null
         });
 });
 

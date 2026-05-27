@@ -20,26 +20,68 @@
        </div>
 
        <h2>Upload Foto's</h2>
-    <form action="/submitchallenge/<%= challenge.id %>" method="POST" enctype="multipart/form-data">
        <section class="upload-zone">
-        <div class="takeimage">
-            <input type="file" class="selfie" name="selfie" accept="image/*" capture="enviroment"/>
-            <button type="button" class="custom-selfie"><img src="/assets/icons/green-camera.png" alt=""> <p>Neem Foto</p></button></div>
-      
-       <div class="upload-image">
-            <input type="file" class="selfie" name="selfie" accept="image/*" capture="enviroment"/>
-            <button type="button" class="custom-selfie"><img src="/assets/icons/upload.png" alt=""><p>Upload</p></button></div>
-       </section>
+    <form action="/submitchallenge/<%= challenge.id %>" method="POST" enctype="multipart/form-data">
+    <h2 class="title-page">Upload Foto's</h2>
 
-       <!--Voeg een extra submit button die onzichtbaar is waar je de input naar kunt sturen, je moet dit doen om te button te kunnen stylen voor de input-->
+    <!-- Hidden inputs -->
+    <input type="file" id="cameraInput" accept="image/*" capture="environment" style="display:none">
+    <input type="file" id="fileInput" accept="image/*" style="display:none">
 
-       <h2>Descriptie</h2>
-       <div class="description">
+    <div class="upload-buttons">
+        <button type="button" class="upload-btn" onclick="document.getElementById('cameraInput').click()">
+            <img src="/assets/icons/green-camera.png" alt="">
+            <p>Neem Foto</p>
+        </button>
+
+        <button type="button" class="upload-btn" onclick="document.getElementById('fileInput').click()">
+            <img src="/assets/icons/upload.png" alt="">
+            <p>Upload</p>
+        </button>
+    </div>
+
+    <!-- Preview van geselecteerde foto -->
+    <div class="photo-preview" id="photoPreview" style="display:none">
+        <img id="previewImg" src="" alt="Preview">
+        <button type="button" onclick="clearPhoto()">✕</button>
+    </div>
+    <!--Voeg een extra submit button die onzichtbaar is waar je de input naar kunt sturen, je moet dit doen om te button te kunnen stylen voor de input-->
+    
+    <h2>Descriptie</h2>
+    <div class="description">
         
-       <input type="text" name="description" class="description-input" placeholder="Tell us about your experience...">
-       </div>
-
-       <button type="submit" class="submit-challenge">Verzenden & verdien <%= challenge.comfyPoints %> CP</button>
-    </form>
-    </main>
+        <input type="text" name="description" class="description-input" placeholder="Tell us about your experience...">
+    </div>
+    
+    <button type="submit" class="submit-challenge">Verzenden & verdien <%= challenge.comfyPoints %> CP</button>
+</form>
+</main>
+</section>
 <%- include("partials/footer") %>
+
+<script>
+    const cameraInput = document.getElementById('cameraInput');
+    const fileInput = document.getElementById('fileInput');
+    const preview = document.getElementById('photoPreview');
+    const previewImg = document.getElementById('previewImg');
+
+    function showPreview(file) {
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImg.src = e.target.result;
+            preview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function clearPhoto() {
+        previewImg.src = '';
+        preview.style.display = 'none';
+        cameraInput.value = '';
+        fileInput.value = '';
+    }
+
+    cameraInput.addEventListener('change', () => showPreview(cameraInput.files[0]));
+    fileInput.addEventListener('change', () => showPreview(fileInput.files[0]));
+</script>

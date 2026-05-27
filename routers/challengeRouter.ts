@@ -3,7 +3,9 @@ import { getChallenges, getChallengeById, getCompletedChallenges, acceptChalleng
 import { Challenge } from "../types";
 import { Collection, ObjectId } from "mongodb";
 import { userChallengesCollection } from "../database";
+import multer from "multer";
 
+const upload = multer({ dest: "public/uploads/" });
 
 export function challengeRouter() {
   const router = express.Router();
@@ -56,9 +58,9 @@ export function challengeRouter() {
 
         const challenge = await getChallengeById(parseInt(req.params.id));
         const activeChallenges = await getActiveChallengeById(req.session.user!._id!.toString());
-        const completedChallenge = await getCompletedChallenges(req.session.user!._id!.toString());
+        const completedChallenge  = await getCompletedChallenges(req.session.user!._id!.toString());
 
-        const completedIds = completedChallenge.map(item => item?.id)
+        const completedIds = completedChallenge.map(item => item.id)
 
         activeChallenges.activeUserChallenge?.challengeId
         res.render("detailpage", {
@@ -72,7 +74,6 @@ export function challengeRouter() {
 
         const activeChallenge = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
 
-
         res.render("submitchallenge",
             {
                 challenge: activeChallenge.activeChallenge,
@@ -81,9 +82,9 @@ export function challengeRouter() {
         );
     });
 
-    router.post("/submitchallenge/:id", async (req, res) => {
+    router.post("/submitchallenge/:id", upload.single("photo"),  async (req, res) => {
     try {
-        await completeChallenge(new ObjectId(req.session.user?._id).toString(), parseInt(req.params.id));
+        await completeChallenge(req.session.user!._id!.toString(), parseInt(req.params.id as string),req.body.description, req.file?.filename);
         res.redirect("/profilepage");
         
         } catch (error) {

@@ -12,7 +12,7 @@ export const userCollection = client.db("UnComfy").collection<User>("Users");
 export const challengeCollection = client.db("UnComfy").collection<Challenge>("Challenges");
 export const userChallengesCollection = client.db("UnComfy").collection<UserChallenge>("UserChallenges");
 
-const challengesUrl = "https://raw.githubusercontent.com/Ronidetweede/dataset-uncomfy/refs/heads/main/jsonChallenges.json"
+export const challengesUrl = "https://raw.githubusercontent.com/Ronidetweede/dataset-uncomfy/refs/heads/main/jsonChallenges.json"
 
 const saltRounds: number = 10;
 
@@ -25,8 +25,6 @@ async function exit() {
     }
     process.exit(0);
 }
-
-
 
 export async function connect() {
         try {
@@ -43,7 +41,6 @@ export async function connect() {
 }
 
 async function loadDatabase() {
-   await createInitialChallenges();
    await createInitialUser();
 }
 
@@ -67,20 +64,5 @@ async function createInitialUser() {
         
     } catch (error) {
         throw new Error(`Admin kon niet worden aangemaakt: ${error}`);
-    }
-}
-
-async function createInitialChallenges() {
-    const count = await challengeCollection.countDocuments();
-
-    if (count === 0) {
-        try {
-            const challengeJson = await fetch(challengesUrl);
-            let challengeData = await challengeJson.json();
-            await challengeCollection.insertMany(challengeData);
-            console.log("Challenges added to database");
-        } catch (error) {
-            throw new Error(`Kan challenges niet inladen van Github: ${error}`);
-        }
     }
 }

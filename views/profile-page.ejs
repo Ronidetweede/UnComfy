@@ -8,7 +8,7 @@
             <div class="header">
                 <div class="profile">
                     <div class="personal">
-                        <img class="profile-picture" src="assets/placeholders/helena.png" alt="Profielfoto">
+                        <img class="profile-picture" src="<%= profilePicture ? '/uploads/' + profilePicture : 'assets/placeholders/Default_pfp.jpg' %>" alt="Profielfoto">
                         <h2><%= username %></h2>
                     </div>
                     <div class="dropdown">
@@ -57,8 +57,8 @@
                 <h3>Recente Prestaties</h3>
                 <a href="/achievements">Bekijk Alle</a>
             </div>
-        <% for (let challenge of challenges) { %>
-            <div id="achievements" class="achievements">
+        <div id="achievements" class="achievements">
+            <% for (let challenge of challenges) { %>
                 <div class="achievement"><a href="/detailpage/<%= challenge.id %>">
                         <img class="location" src="assets/placeholders/location2.png" alt="Locatie">
                         <div class="overlay"></div>
@@ -70,10 +70,10 @@
                             </div>
                         </div>
                         <img class="completed" src="assets/icons/completed.png" alt="Voltooid-icoon">
-                        <!-- Dit zijn placeholders! Inladen met javascript/typescript -->
                     </a>
                 </div>
             <% } %>
+        </div>
         </main>
         <script src="/js/profile-page.js"></script>
         <%- include("partials/footer") %>

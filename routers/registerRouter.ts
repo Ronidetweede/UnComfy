@@ -1,5 +1,10 @@
 import express from "express";
-import { Register } from "../data";
+import { getUserById, Register, updateUser } from "../data";
+import { log } from "node:console";
+import { userChallengesCollection } from "../database";
+import multer from "multer";
+
+const upload = multer({ dest: "public/uploads/" });
 
 export function registerRouter() {
   const router = express.Router();
@@ -27,14 +32,33 @@ export function registerRouter() {
 
   router.get("/accountsetup" , async(req,res)=> {
     try {
-      // await updateUser(req.session.user?.username);
+      const user = await getUserById(req.session.user?._id!);
+
+      res.render("account-setup", {
+        username: user?.username,
+        displayname: user?.displayName,
+        email: user?.email ?? "",
+        profilePicture: user?.profilePicture ?? null
+      });
 
     } catch (error : any) {
-      
+      console.log(error);
     }
-    res.render("account-setup");
-
   });
+
+  router.post("/accountsetup", upload.single("photo"), async(req,res)=> {
+  try {
+    const displayName = req.body.displayName;
+    const email = req.body.email;
+    const profilePicture = req.file ? req.file.filename : undefined;
+
+    await updateUser(req.session.user?._id!, displayName, email, profilePicture);
+
+    res.redirect("/profilepage");
+
+  } catch (error : any) {
+    console.log(error);
+  }});
 
   return router;
 };

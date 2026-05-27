@@ -12,7 +12,7 @@
         <div class="location-challenge">
             <img src="/assets/icons/green-location.png">
             <p>Locatie</p>
-            <h6 class="location"><%= challenge.location %></h6>
+            <h6 class="location"><%= challenge.location.address %></h6>
         </div>
         <div class="peopleChallenge">
             <img src="/assets/icons/green-people.png">
@@ -30,18 +30,18 @@
       <div class="expectation-Card">
         <h3><img src="/assets/icons/stars.png"> Wat je kan verwachten</h3>
         <ul>
-            <li>Een kans om sociale vaardigheden te oefenen in een veilige omgeving.</li>
-            <li>Ontmoet andere deelnemers en maak misschien wel nieuwe vrienden.</li>
-            <li>Bouw zelfvertrouwen op bij elke interactie.</li>
+       <% for (const criterium of challenge.criteria) { %>
+           <li><%= criterium %></li>
+       <% } %>
         </ul>
       </div>
 
       <div class="expectation-Card">
         <h3><img src="/assets/icons/tips.png">Tips voor succes</h3>
         <ul>
-            <li>Begin met een glimlach - die is universeel en verwelkomend.</li>
-            <li>Toon respect voor mensen die het druk lijken te hebben of die iets afwijzen.</li>
-            <li>Denk er niet te veel over na - authenticiteit is belangrijker dan perfectie.</li>
+       <% for (const expectation of challenge.expectations) { %>
+           <li><%= expectation %></li>
+       <% } %>
         </ul>
       </div>
 </section>
@@ -51,9 +51,9 @@
       <div class="completion-Card">
         <h3><img src="/assets/icons/white-award.png"> Voltooiings Criteria</h3>
         <ul>
-            <li><img src="/assets/icons/checklist.png">Groet precies 10 vreemden.</li>
-            <li><img src="/assets/icons/checklist.png">Je moet in het Stadhuis Antwerpen zijn.</li>
-            <li><img src="/assets/icons/checklist.png">Binnen één sessie afgerond</li>
+       <% for (const criterium of challenge.criteria) { %>
+           <li><img src="/assets/icons/checklist.png"><%= criterium %></li>
+       <% } %>
         </ul>
       </div>
 

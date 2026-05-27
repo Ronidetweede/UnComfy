@@ -1,17 +1,31 @@
 import { ClientEncryption, ObjectId } from "mongodb";
-import { client, userCollection, challengeCollection, userChallengesCollection } from "./database";
-import { Challenge, SortDirection, SortField, User, UserChallenge } from "./types";
+import {
+  client,
+  userCollection,
+  challengeCollection,
+  userChallengesCollection,
+} from "./database";
+import {
+  Challenge,
+  SortDirection,
+  SortField,
+  User,
+  UserChallenge,
+} from "./types";
 import bcrypt from "bcrypt";
-
 
 const saltRounds: number = 10;
 
-export async function getChallenges(  q: string, sortField: SortField, sortDirection: SortDirection,category: string,): Promise<Challenge[]> {
-  let cursor = challengeCollection.find({});;
+export async function getChallenges(
+  q: string,
+  sortField: SortField,
+  sortDirection: SortDirection,
+  category: string,
+): Promise<Challenge[]> {
+  let cursor = challengeCollection.find({});
   let filteredChallenges = await cursor.toArray();
 
   return new Promise((res) => {
-
     if (q) {
       filteredChallenges = filteredChallenges.filter((challenge) => {
         return challenge.title.toUpperCase().includes(q.toUpperCase());
@@ -63,63 +77,93 @@ export async function getChallenges(  q: string, sortField: SortField, sortDirec
   });
 }
 
-export async function getChallengeById(id: number): Promise<Challenge | undefined> {
-    let challenge = await challengeCollection.findOne<Challenge>( {id : id} );
-    return challenge ?? undefined;
-};
+export async function getLeaderBoard() {
+  const users = await userCollection
+    .find({ role: "USER" })
+    .sort({ points: -1 })
+    .toArray();
+  return users;
+}
+
+export async function getChallengeById(
+  id: number,
+): Promise<Challenge | undefined> {
+  let challenge = await challengeCollection.findOne<Challenge>({ id: id });
+  return challenge ?? undefined;
+}
 
 export async function getActiveChallengeById(userId: string) {
-  const activeUserChallenge = await userChallengesCollection.findOne({userId: userId, status: "ACTIVE"});
-  const activeChallenge = await getChallengeById(activeUserChallenge?.challengeId!); 
+  const activeUserChallenge = await userChallengesCollection.findOne({
+    userId: userId,
+    status: "ACTIVE",
+  });
+  const activeChallenge = await getChallengeById(
+    activeUserChallenge?.challengeId!,
+  );
 
-  return {activeChallenge, activeUserChallenge};
+  return { activeChallenge, activeUserChallenge };
 }
 
 export async function getCompletedChallenges(userId: string) {
+  const completedUserChallenge = await userChallengesCollection
+    .find({ userId: userId, status: "COMPLETED" })
+    .toArray();
 
-  const completedUserChallenge = await userChallengesCollection.find({userId: userId, status: "COMPLETED"}).toArray();
-
-  const resultChallenges = [];
+  const resultChallenges: Challenge[] = [];
 
   for (const completedChallenge of completedUserChallenge) {
-    const challenge : Challenge | undefined  = await getChallengeById(completedChallenge.challengeId);
+    const challenge: Challenge | undefined = await getChallengeById(
+      completedChallenge.challengeId,
+    );
 
-    resultChallenges.push(challenge);
+    if (challenge) {
+      resultChallenges.push(challenge);
+    }
   }
   return resultChallenges;
 }
 
-export async function completeChallenge(userId: string, challengeId: number) {
-  
-  let user = await userCollection.findOne<User>({_id: new ObjectId(userId)});
+export async function completeChallenge(
+  userId: string,
+  challengeId: number,
+  description: string,
+  photoPath?: string,
+) {
+  let user = await userCollection.findOne<User>({ _id: new ObjectId(userId) });
 
   const challenges = await getActiveChallengeById(userId);
 
   user!.points += challenges.activeChallenge?.comfyPoints!;
 
-  console.log(user!.points);
-  console.log(challenges.activeChallenge?.comfyPoints);
+  await userChallengesCollection.updateOne(
+    { challengeId: challengeId, userId: userId },
+    {
+      $set: {
+        status: "COMPLETED",
+        desc: description,
+        photo: (photoPath as string) ?? null,
+        completedAt: new Date(Date.now()),
+      },
+    },
+  );
 
-  await userChallengesCollection.updateOne({challengeId: challengeId}, {$set: {status: "COMPLETED"}});
-  
-  await userCollection.updateOne({_id: new ObjectId(userId)}, {$set: {points: user!.points }});
+  await userCollection.updateOne(
+    { _id: new ObjectId(userId) },
+    { $set: { points: user!.points } },
+  );
 }
 
-export async function acceptChallenge(userId: ObjectId, challengeId: number){
-
-  const checkCompletedChallenge = userChallengesCollection.findOne({challengeId : challengeId});
-
+export async function acceptChallenge(userId: ObjectId, challengeId: number) {
   await userChallengesCollection.insertOne({
     userId: userId.toString(),
     challengeId: challengeId,
     status: "ACTIVE",
     acceptedAt: new Date(Date.now()),
-  })
-
+  });
 }
 
-export async function getUserById(userId:ObjectId) {
-    return await userCollection.findOne<User>({ _id: new ObjectId(userId) });
+export async function getUserById(userId: ObjectId | string) {
+  return await userCollection.findOne<User>({ _id: new ObjectId(userId) });
 }
 
 export async function Login(username: string, password: string) {
@@ -138,6 +182,25 @@ export async function Login(username: string, password: string) {
   }
 }
 
+export async function updateUser(
+  user_Id: ObjectId,
+  displayName: string,
+  email: string,
+  profilePicture?: string,
+) {
+  const update: any = { displayName, email };
+  if (profilePicture) {
+    update.profilePicture = profilePicture;
+  }
+
+  await userCollection.updateOne(
+    { _id: new ObjectId(user_Id) },
+    {
+      $set: update,
+    },
+  );
+}
+
 export async function Register(username: string, password: string) {
   let userExists = await userCollection.findOne<User>({ username: username });
 
@@ -153,4 +216,3 @@ export async function Register(username: string, password: string) {
     points: 0,
   });
 }
-
