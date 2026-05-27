@@ -69,7 +69,6 @@ export async function getChallengeById(id: number): Promise<Challenge | undefine
 };
 
 export async function getActiveChallengeById(userId: string) {
-
   const activeUserChallenge = await userChallengesCollection.findOne({userId: userId, status: "ACTIVE"});
   const activeChallenge = await getChallengeById(activeUserChallenge?.challengeId!); 
 
@@ -107,7 +106,9 @@ export async function completeChallenge(userId: string, challengeId: number) {
 }
 
 export async function acceptChallenge(userId: ObjectId, challengeId: number){
-  
+
+  const checkCompletedChallenge = userChallengesCollection.findOne({challengeId : challengeId});
+
   await userChallengesCollection.insertOne({
     userId: userId.toString(),
     challengeId: challengeId,

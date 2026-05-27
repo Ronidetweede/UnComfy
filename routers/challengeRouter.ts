@@ -55,13 +55,16 @@ export function challengeRouter() {
     router.get("/detailpage/:id", async (req, res) => {
 
         const challenge = await getChallengeById(parseInt(req.params.id));
-        const activeChallenges = await getActiveChallengeById(new ObjectId(req.session.user?._id).toString());
+        const activeChallenges = await getActiveChallengeById(req.session.user!._id!.toString());
         const completedChallenge = await getCompletedChallenges(req.session.user!._id!.toString());
 
+        const completedIds = completedChallenge.map(item => item?.id)
+
+        activeChallenges.activeUserChallenge?.challengeId
         res.render("detailpage", {
             challenge: challenge,
             userChallenge: activeChallenges.activeUserChallenge,
-            completedChallenge: completedChallenge
+            completedIds: completedIds
         });
     });
 

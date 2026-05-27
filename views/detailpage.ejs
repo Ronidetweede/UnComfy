@@ -57,10 +57,10 @@
         </ul>
       </div>
 
-    <% if (userChallenge && userChallenge.status === "ACTIVE") { %>
-      <a href="/submitchallenge/<%= userChallenge.challengeId %>"><button class="card-button">Indienen Challenge</button> </a>
-    <% } else if (completedChallenge) { %>
-    <button class="card-button">Al voltooid!</button>
+    <% if (completedIds.includes(challenge.id)) { %>
+      <button class="card-button">Al voltooid!</button>
+      <% } else if (userChallenge && userChallenge.status === "ACTIVE" && userChallenge.challengeId === challenge.id) { %>
+        <a href="/submitchallenge/<%= userChallenge.challengeId %>"><button class="card-button">Indienen Challenge</button> </a>
     <% } else if (!userChallenge) { %>
         <form action="/dailychallenges/<%= challenge.id %>/accept" method="post">
       <a href="/currentchallenge"><button class="card-button">Accepteer Challenge</button> </a>
